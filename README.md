@@ -11,13 +11,13 @@ Mod de folosire:
 
 Pentru adaugare:
 <br>
-data se pune in textbox                         01-01-0001
+-data se pune in textbox                         01-01-0001
 <br>
-ora se pune in textbox                          7-15 sau 6:00-9:30 sau 16:00-24
+-ora se pune in textbox                          7-15 sau 6:00-9:30 sau 16:00-24
 <br>
-pauza se pune in textbox                        fie 1 (daca e intreg) sau 0:30 daca sunt doar 30 min , 0:45 etc
+-pauza se pune in textbox                        fie 1 (daca e intreg) sau 0:30 daca sunt doar 30 min , 0:45 etc
 <br>
-leii pe ora se pun in textbox                   12 sau 12.5
+-leii pe ora se pun in textbox                   12 sau 12.5
 <br>
 <br>
 Pentru adaugare:
