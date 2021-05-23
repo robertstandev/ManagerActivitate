@@ -5,6 +5,8 @@ For Android 4.4 (API 19) and above
 ![alt text](https://raw.githubusercontent.com/robertstandev/ManagerActivitate/main/README/Images/PreviousMonths.png)
 ![alt text](https://raw.githubusercontent.com/robertstandev/ManagerActivitate/main/README/Images/MultiModify.png)
 
+<br>
+<br>
 Mod de folosire:
 
 Pentru adaugare:
@@ -40,6 +42,6 @@ in textboxul de data se pune data fara ziua (doar luna si an) ex: 01-2020   sau 
 <br>
 Se salveaza fisiere in:
 <br>
-Vizibil : Folder ManagerActivitate: 01.01.0001.txt
+Vizibil :  /ManagerActivitate/ + LunaSiAnCurent + .txt
 <br>
-Invizibil (Inaccesibil decat root sau pe PC) : data/user/0/com.stanrobert.manageractivitate   1 fisier:  backup data.txt
+Invizibil (Inaccesibil decat root sau pe PC) : data/user/0/com.stanrobert.manageractivitate/backup + LunaSiAnCurent + .txt
