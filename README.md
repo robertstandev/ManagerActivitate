@@ -10,7 +10,7 @@ For Android 4.4 (API 19) and above
 <br>
 Usage:
 
-For adding a data:
+For adding data:
 <br>
 -date format                         01-01-0001
 <br>
