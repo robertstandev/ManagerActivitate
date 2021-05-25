@@ -25,8 +25,8 @@ For adding data:
 <br>
 For modification:
 <br>
-Select the row/s and change only fill the textboxes regarding the data that needs to be changed (hours at work , break hours , money/h)
-(date will be preserved) and then the Change button needs to be pressed (which was the Add button before)
+Select the row/s and only fill the textboxes regarding the data that needs to be changed (hours at work , break hours , money/h)
+(date will be preserved) and then the Change button needs to be pressed (which was the Add button before selecting the row/s)
 <br>
 <br>
 For deleting:
