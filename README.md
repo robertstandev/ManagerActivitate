@@ -8,28 +8,25 @@ For Android 4.4 (API 19) and above
 
 <br>
 <br>
-Mod de folosire:
+Usage:
 
-Pentru adaugare:
+For adding a data:
 <br>
--data se pune in textbox                         01-01-0001
+-date format                         01-01-0001
 <br>
--ora se pune in textbox                          7-15 sau 6:00-9:30 sau 16:00-24
+-hour format                        7-15 or 6:00-9:30 or 16:00-24
 <br>
--pauza se pune in textbox                        fie 1 (daca e intreg) sau 0:30 daca sunt doar 30 min , 0:45 etc
+-pause format                        either 1 or 0:30 if only 30 min , 0:45 etc
 <br>
--leii pe ora se pun in textbox                   12 sau 12.5
+-money/h format                   12 or 12.5
 <br>
-<br>
-Pentru adaugare:
-<br>
-Toate textboxurile trebuiesc umplute
+* * All textboxes must be filled * *
 <br>
 <br>
-Pentru modificare:
+For modification:
 <br>
-Se selecteaza rand (ul/urile) si apoi se completeaza doar textboxurile care se doresc a fi modificate (ore la munca , ore pauza , lei/h)
-(data calendaristica va fi ignorata si va fi pastrata originalul) iar apoi se apasa butonul modifica (care era butonul adaugare inainte)
+Select the row/s and change only fill the textboxes regarding the data that needs to be changed (hours at work , break hours , money/h)
+(date will be preserved) and then the Change button needs to be pressed (which was the Add button before)
 <br>
 <br>
 Pentru stergere:
