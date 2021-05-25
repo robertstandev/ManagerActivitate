@@ -28,17 +28,18 @@ Toate textboxurile trebuiesc umplute
 <br>
 Pentru modificare:
 <br>
-Dai click pe rand (uri) si apoi umpli doar textboxurile care doresti sa modifici datele (ore la munca , ore pauza , lei/h)
-(data calendaristica va fi ignorata si va fi pastrata originalul) iar apoi apesi butonul modifica (care era butonul adaugare inainte)
+Se selecteaza rand (ul/rile) si apoi se umple doar textboxurile care se doresc a fi modificate (ore la munca , ore pauza , lei/h)
+(data calendaristica va fi ignorata si va fi pastrata originalul) iar apoi se apasa butonul modifica (care era butonul adaugare inainte)
 <br>
 <br>
 Pentru stergere:
 <br>
-Dai click pe rand (uri) si apoi apesi butonul stergere
+Se da click pe rand (uri) si apoi apesi butonul stergere
 <br>
-Pentru backup/Vizionare pe lunile vechi
+Pentru backup/Vizionare pe lunile vechi:
 <br>
-in textboxul de data se pune data fara ziua (doar luna si an) ex: 01-2020   sau    03-2021
+-in textboxul de data se pune data fara ziua (doar luna si an) ex: 01-2020   sau    03-2021
+-apoi se apasa butonul []
 <br>
 <br>
 Se salveaza fisiere in:
