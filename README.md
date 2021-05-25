@@ -16,7 +16,7 @@ For adding a data:
 <br>
 -hour format                        7-15 or 6:00-9:30 or 16:00-24
 <br>
--pause format                        either 1 or 0:30 if only 30 min , 0:45 etc
+-break format                        either 1 or 0:30 if only 30 min , 0:45 etc
 <br>
 -money/h format                   12 or 12.5
 <br>
@@ -29,20 +29,20 @@ Select the row/s and change only fill the textboxes regarding the data that need
 (date will be preserved) and then the Change button needs to be pressed (which was the Add button before)
 <br>
 <br>
-Pentru stergere:
+For deleting:
 <br>
-Se da click pe rand (uri) si apoi se apasa butonul stergere
-<br>
-<br>
-Pentru backup/Vizionare pe lunile vechi:
-<br>
--in textboxul de data se pune data fara ziua (doar luna si an) ex: 01-2020   sau    03-2021
-<br>
--apoi se apasa butonul []
+Select the row/s and press the Delete button
 <br>
 <br>
-Se salveaza fisiere in:
+For reading the previous months:
 <br>
-Vizibil :  /ManagerActivitate/ + LunaSiAnCurent + .txt
+-in the date textbox type only the month and year ex: 01-2020   or    03-2021
 <br>
-Invizibil (Inaccesibil decat root sau pe PC) : data/user/0/com.stanrobert.manageractivitate/backup + LunaSiAnCurent + .txt
+-and then press []
+<br>
+<br>
+Saving files in:
+<br>
+Visible :  /ManagerActivitate/ + CurrentMonthAndYear + .txt
+<br>
+Invisible (inaccessible except from PC or rooted Phone) : data/user/0/com.stanrobert.manageractivitate/backup + CurrentMonthAndYear + .txt
