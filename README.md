@@ -20,7 +20,7 @@ For adding a data:
 <br>
 -money/h format                   12 or 12.5
 <br>
-* * All textboxes must be filled * *
+'All textboxes must be filled'
 <br>
 <br>
 For modification:
