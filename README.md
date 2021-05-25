@@ -28,13 +28,13 @@ Toate textboxurile trebuiesc umplute
 <br>
 Pentru modificare:
 <br>
-Se selecteaza rand (ul/urile) si apoi se umple doar textboxurile care se doresc a fi modificate (ore la munca , ore pauza , lei/h)
+Se selecteaza rand (ul/urile) si apoi se completeaza doar textboxurile care se doresc a fi modificate (ore la munca , ore pauza , lei/h)
 (data calendaristica va fi ignorata si va fi pastrata originalul) iar apoi se apasa butonul modifica (care era butonul adaugare inainte)
 <br>
 <br>
 Pentru stergere:
 <br>
-Se da click pe rand (uri) si apoi apesi butonul stergere
+Se da click pe rand (uri) si apoi se apasa butonul stergere
 <br>
 <br>
 Pentru backup/Vizionare pe lunile vechi:
