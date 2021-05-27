@@ -21,6 +21,7 @@ For adding data:
 -money/h format                   12 or 12.5
 <br>
 'All textboxes must be filled'
+<br>
 'Data automatically saves to files when adding new data'
 <br>
 <br>
