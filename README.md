@@ -22,7 +22,7 @@ For adding data:
 <br>
 'All textboxes must be filled'
 <br>
-'Data automatically saves to files when adding new data'
+'Automatically saves to files when adding new data'
 <br>
 <br>
 For modification:
