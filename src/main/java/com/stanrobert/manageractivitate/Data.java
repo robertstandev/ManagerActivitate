@@ -12,15 +12,17 @@ public class Data
 {
     private MainActivity mainActivityComponent;
     private ErrorBuilder errorBuilderComponent;
+    private ApplicationUI applicationUIComponent;
 
     private double totalHoursAtWork = 0.0;
     private double totalBreak = 0.0;
     private double totalMoney = 0.0;
 
-    public Data (MainActivity mainActivityComponent, ErrorBuilder errorBuilderComponent)
+    public Data (MainActivity mainActivityComponent, ErrorBuilder errorBuilderComponent, ApplicationUI applicationUIComponent)
     {
         this.mainActivityComponent = mainActivityComponent;
         this.errorBuilderComponent = errorBuilderComponent;
+        this.applicationUIComponent = applicationUIComponent;
     }
 
     public void addMoney(String hoursAtWorkTime, String breakTime, String moneyPerHour)
@@ -40,9 +42,9 @@ public class Data
 
     public void substractMoney(int i)
     {
-        View columnHoursAtWork = ((TableRow) mainActivityComponent.tableGUI.getChildAt(i)).getChildAt(1);
-        View columnBreakHours = ((TableRow) mainActivityComponent.tableGUI.getChildAt(i)).getChildAt(2);
-        View columnMoneyPerHour = ((TableRow) mainActivityComponent.tableGUI.getChildAt(i)).getChildAt(3);
+        View columnHoursAtWork = ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(1);
+        View columnBreakHours = ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(2);
+        View columnMoneyPerHour = ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(3);
 
         totalMoney = totalMoney - calculateTotalMoney(((TextView) columnHoursAtWork).getText().toString(), ((TextView) columnBreakHours).getText().toString(), ((TextView) columnMoneyPerHour).getText().toString());
         totalHoursAtWork = totalHoursAtWork - calculateHoursAtWork(((TextView) columnHoursAtWork).getText().toString());

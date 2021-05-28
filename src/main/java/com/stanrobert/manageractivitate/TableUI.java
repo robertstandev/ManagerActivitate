@@ -14,13 +14,15 @@ public class TableUI
     private Data dataComponent;
     private MainActivity mainActivityComponent;
     private WriteToFile writeFileComponent;
+    private ApplicationUI applicationUIComponent;
 
-    public TableUI(Data dataComponent, MainActivity mainActivityComponent, ErrorBuilder errorBuilderComponent, WriteToFile writeFileComponent)
+    public TableUI(Data dataComponent, MainActivity mainActivityComponent, ErrorBuilder errorBuilderComponent, WriteToFile writeFileComponent, ApplicationUI applicationUIComponent)
     {
         this.dataComponent = dataComponent;
         this.mainActivityComponent = mainActivityComponent;
         this.errorBuilderComponent = errorBuilderComponent;
         this.writeFileComponent = writeFileComponent;
+        this.applicationUIComponent = applicationUIComponent;
     }
 
     private TextView createColumns()
@@ -38,60 +40,60 @@ public class TableUI
     {
         try
         {
-            mainActivityComponent.tableRow = new TableRow(mainActivityComponent);
+            applicationUIComponent.tableRow = new TableRow(mainActivityComponent);
 
-            mainActivityComponent.columnText1 = createColumns();
-            mainActivityComponent.columnText2 = createColumns();
-            mainActivityComponent.columnText3 = createColumns();
-            mainActivityComponent.columnText4 = createColumns();
-            mainActivityComponent.columnText5 = createColumns();
+            applicationUIComponent.columnText1 = createColumns();
+            applicationUIComponent.columnText2 = createColumns();
+            applicationUIComponent.columnText3 = createColumns();
+            applicationUIComponent.columnText4 = createColumns();
+            applicationUIComponent.columnText5 = createColumns();
 
             if (!fromFile)
             {
-                mainActivityComponent.columnText1.setText(mainActivityComponent.dateText.getText());
-                mainActivityComponent.columnText2.setText(mainActivityComponent.hoursAtWorkText.getText());
-                mainActivityComponent.columnText3.setText(mainActivityComponent.breakText.getText());
-                mainActivityComponent.columnText4.setText(mainActivityComponent.moneyPerHourText.getText());
-                mainActivityComponent.columnText5.setText(String.valueOf(dataComponent.calculateTotalMoney(mainActivityComponent.hoursAtWorkText.getText().toString(), mainActivityComponent.breakText.getText().toString(), mainActivityComponent.moneyPerHourText.getText().toString())));
+                applicationUIComponent.columnText1.setText(applicationUIComponent.dateText.getText());
+                applicationUIComponent.columnText2.setText(applicationUIComponent.hoursAtWorkText.getText());
+                applicationUIComponent.columnText3.setText(applicationUIComponent.breakText.getText());
+                applicationUIComponent.columnText4.setText(applicationUIComponent.moneyPerHourText.getText());
+                applicationUIComponent.columnText5.setText(String.valueOf(dataComponent.calculateTotalMoney(applicationUIComponent.hoursAtWorkText.getText().toString(), applicationUIComponent.breakText.getText().toString(), applicationUIComponent.moneyPerHourText.getText().toString())));
             }
             else
             {
-                mainActivityComponent.columnText1.setText(column1);
-                mainActivityComponent.columnText2.setText(column2);
-                mainActivityComponent.columnText3.setText(column3);
-                mainActivityComponent.columnText4.setText(column4);
-                mainActivityComponent.columnText5.setText(column5);
+                applicationUIComponent.columnText1.setText(column1);
+                applicationUIComponent.columnText2.setText(column2);
+                applicationUIComponent.columnText3.setText(column3);
+                applicationUIComponent.columnText4.setText(column4);
+                applicationUIComponent.columnText5.setText(column5);
             }
 
-            mainActivityComponent.tableRow.addView(mainActivityComponent.columnText1);
-            mainActivityComponent.tableRow.addView(mainActivityComponent.columnText2);
-            mainActivityComponent.tableRow.addView(mainActivityComponent.columnText3);
-            mainActivityComponent.tableRow.addView(mainActivityComponent.columnText4);
-            mainActivityComponent.tableRow.addView(mainActivityComponent.columnText5);
-            mainActivityComponent.tableRow.setBackgroundColor(Color.rgb(218, 232, 252));
-            mainActivityComponent.tableRow.setPadding(5, 0, 5, 0);
+            applicationUIComponent.tableRow.addView(applicationUIComponent.columnText1);
+            applicationUIComponent.tableRow.addView(applicationUIComponent.columnText2);
+            applicationUIComponent.tableRow.addView(applicationUIComponent.columnText3);
+            applicationUIComponent.tableRow.addView(applicationUIComponent.columnText4);
+            applicationUIComponent.tableRow.addView(applicationUIComponent.columnText5);
+            applicationUIComponent.tableRow.setBackgroundColor(Color.rgb(218, 232, 252));
+            applicationUIComponent.tableRow.setPadding(5, 0, 5, 0);
 
-            mainActivityComponent.tableRow.setOnClickListener(new View.OnClickListener() {
+            applicationUIComponent.tableRow.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (((ColorDrawable) view.getBackground()).getColor() == Color.rgb(218, 232, 252))
                     {
                         view.setBackgroundColor(Color.rgb(230, 100, 100));
-                        mainActivityComponent.addButton.setText("Modifica");
-                        mainActivityComponent.deleteButton.setEnabled(true);
+                        applicationUIComponent.addButton.setText("Modifica");
+                        applicationUIComponent.deleteButton.setEnabled(true);
                     }
                     else
                     {
                         view.setBackgroundColor(Color.rgb(218, 232, 252));
                         if (!areRowsSelected())
                         {
-                            mainActivityComponent.addButton.setText("Adauga");
-                            mainActivityComponent.deleteButton.setEnabled(false);
+                            applicationUIComponent.addButton.setText("Adauga");
+                            applicationUIComponent.deleteButton.setEnabled(false);
                         }
                     }
                 }
             });
-            mainActivityComponent.tableGUI.addView(mainActivityComponent.tableRow);
+            applicationUIComponent.tableGUI.addView(applicationUIComponent.tableRow);
         }
         catch (Exception e)
         {
@@ -103,12 +105,12 @@ public class TableUI
     {
         try
         {
-            for (int i = mainActivityComponent.tableGUI.getChildCount() - 1; i >= 0; i--)
+            for (int i = applicationUIComponent.tableGUI.getChildCount() - 1; i >= 0; i--)
             {
-                if (((ColorDrawable) mainActivityComponent.tableGUI.getChildAt(i).getBackground()).getColor() == Color.rgb(230, 100, 100))
+                if (((ColorDrawable) applicationUIComponent.tableGUI.getChildAt(i).getBackground()).getColor() == Color.rgb(230, 100, 100))
                 {
                     dataComponent.substractMoney(i);
-                    mainActivityComponent.tableGUI.removeViewAt(i);
+                    applicationUIComponent.tableGUI.removeViewAt(i);
                 }
             }
             displayCalculations();
@@ -117,30 +119,29 @@ public class TableUI
         {
             errorBuilderComponent.errorConstructor("la calcul");
         }
-        writeFileComponent.saveToFile();
     }
 
     public void deleteAllRows()
     {
-        while (mainActivityComponent.tableGUI.getChildCount() > 1)
+        while (applicationUIComponent.tableGUI.getChildCount() > 1)
         {
-            mainActivityComponent.tableGUI.removeView(mainActivityComponent.tableGUI.getChildAt(mainActivityComponent.tableGUI.getChildCount() - 1));
+            applicationUIComponent.tableGUI.removeView(applicationUIComponent.tableGUI.getChildAt(applicationUIComponent.tableGUI.getChildCount() - 1));
         }
         dataComponent.resetData();
     }
 
     public void displayCalculations()
     {
-        mainActivityComponent.totalMoneyLabel.setText("Total Bani:\n" + dataComponent.getTotalMoney() + "RON");
-        mainActivityComponent.totalHoursLabel.setText("Ore La Munca:\n" + dataComponent.convertDoubleToUserFormat(dataComponent.getTotalHourAtWork()) + "h");
-        mainActivityComponent.totalBreakLabel.setText("Ore Pauza:\n" + dataComponent.convertDoubleToUserFormat(dataComponent.getTotalBreak()) + "h");
+        applicationUIComponent.totalMoneyLabel.setText("Total Bani:\n" + dataComponent.getTotalMoney() + "RON");
+        applicationUIComponent.totalHoursLabel.setText("Ore La Munca:\n" + dataComponent.convertDoubleToUserFormat(dataComponent.getTotalHourAtWork()) + "h");
+        applicationUIComponent.totalBreakLabel.setText("Ore Pauza:\n" + dataComponent.convertDoubleToUserFormat(dataComponent.getTotalBreak()) + "h");
     }
 
     public boolean areRowsSelected()
     {
-        for (int i = 0; i < mainActivityComponent.tableGUI.getChildCount(); i++)
+        for (int i = 0; i < applicationUIComponent.tableGUI.getChildCount(); i++)
         {
-            if (((ColorDrawable) mainActivityComponent.tableGUI.getChildAt(i).getBackground()).getColor() == Color.rgb(230, 100, 100))
+            if (((ColorDrawable) applicationUIComponent.tableGUI.getChildAt(i).getBackground()).getColor() == Color.rgb(230, 100, 100))
             {
                 return true;
             }
@@ -150,8 +151,8 @@ public class TableUI
 
     public void clearFields()
     {
-        mainActivityComponent.dateText.setText("");
-        mainActivityComponent.hoursAtWorkText.setText("");
-        mainActivityComponent.breakText.setText("");
+        applicationUIComponent.dateText.setText("");
+        applicationUIComponent.hoursAtWorkText.setText("");
+        applicationUIComponent.breakText.setText("");
     }
 }

@@ -6,16 +6,18 @@ import android.widget.Toast;
 public class ErrorBuilder
 {
     private MainActivity mainActivityComponent;
+    private ApplicationUI applicationUIComponent;
 
-    public ErrorBuilder(MainActivity mainActivityComponent)
+    public ErrorBuilder(MainActivity mainActivityComponent, ApplicationUI applicationUIComponent)
     {
         this.mainActivityComponent = mainActivityComponent;
+        this.applicationUIComponent = applicationUIComponent;
     }
 
     public void errorConstructor(String text)
     {
-        mainActivityComponent.mainLabel.setText("Eroare " + text);
-        mainActivityComponent.mainLabel.setTextColor(Color.RED);
+        applicationUIComponent.mainLabel.setText("Eroare " + text);
+        applicationUIComponent.mainLabel.setTextColor(Color.RED);
         Toast.makeText(mainActivityComponent, "Eroare " + text, Toast.LENGTH_SHORT).show();
     }
 }

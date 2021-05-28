@@ -15,14 +15,23 @@ public class ButtonsUI implements View.OnClickListener
     private TableUI tableComponent;
     private WriteToFile writeFileComponent;
     private ReadFromFile readFileComponent;
+    private ApplicationUI applicationUIComponent;
 
-    public ButtonsUI(Data dataComponent, MainActivity mainActivityComponent, TableUI tableComponent, WriteToFile writeFileComponent, ReadFromFile readFileComponent)
+    private boolean canWriteToFile = true;
+
+    public ButtonsUI(Data dataComponent, MainActivity mainActivityComponent, TableUI tableComponent, WriteToFile writeFileComponent, ReadFromFile readFileComponent, ApplicationUI applicationUIComponent)
     {
         this.dataComponent = dataComponent;
         this.mainActivityComponent = mainActivityComponent;
         this.tableComponent = tableComponent;
         this.writeFileComponent = writeFileComponent;
         this.readFileComponent = readFileComponent;
+        this.applicationUIComponent = applicationUIComponent;
+
+        applicationUIComponent.mainLabel.setOnClickListener(this);
+        applicationUIComponent.addButton.setOnClickListener(this);
+        applicationUIComponent.deleteButton.setOnClickListener(this);
+        applicationUIComponent.backupButton.setOnClickListener(this);
     }
 
     @Override
@@ -33,61 +42,74 @@ public class ButtonsUI implements View.OnClickListener
             case R.id.btnAdd:
                 hideKeyboard();
 
-                if (mainActivityComponent.addButton.getText() == "Adauga")
+                if (applicationUIComponent.addButton.getText() == "Adauga")
                 {
-                    if (mainActivityComponent.dateText.length() > 0 && mainActivityComponent.hoursAtWorkText.length() > 2 && mainActivityComponent.hoursAtWorkText.getText().toString().contains("-") && mainActivityComponent.breakText.length() > 0 && mainActivityComponent.moneyPerHourText.length() > 0)
+                    if (applicationUIComponent.dateText.length() > 0 && applicationUIComponent.hoursAtWorkText.length() > 2 && applicationUIComponent.hoursAtWorkText.getText().toString().contains("-") && applicationUIComponent.breakText.length() > 0 && applicationUIComponent.moneyPerHourText.length() > 0)
                     {
                         tableComponent.addRow(false, null, null, null, null, null);
-                        dataComponent.addMoney(mainActivityComponent.hoursAtWorkText.getText().toString(), mainActivityComponent.breakText.getText().toString(), mainActivityComponent.moneyPerHourText.getText().toString());
+                        dataComponent.addMoney(applicationUIComponent.hoursAtWorkText.getText().toString(), applicationUIComponent.breakText.getText().toString(), applicationUIComponent.moneyPerHourText.getText().toString());
 
                         tableComponent.displayCalculations();
                         tableComponent.clearFields();
 
-                        writeFileComponent.saveToFile();
+                        if(canWriteToFile)
+                        {
+                            writeFileComponent.saveToFile();
+                        }
                     }
                 }
                 else
                 {
-                    for (int i = mainActivityComponent.tableGUI.getChildCount() - 1; i >= 0; i--)
+                    for (int i = applicationUIComponent.tableGUI.getChildCount() - 1; i >= 0; i--)
                     {
-                        if (((ColorDrawable) mainActivityComponent.tableGUI.getChildAt(i).getBackground()).getColor() == Color.rgb(230, 100, 100))
+                        if (((ColorDrawable) applicationUIComponent.tableGUI.getChildAt(i).getBackground()).getColor() == Color.rgb(230, 100, 100))
                         {
                             dataComponent.substractMoney(i);
 
-                            if (mainActivityComponent.hoursAtWorkText.length() > 2 && mainActivityComponent.hoursAtWorkText.getText().toString().contains("-"))
+                            if (applicationUIComponent.hoursAtWorkText.length() > 2 && applicationUIComponent.hoursAtWorkText.getText().toString().contains("-"))
                             {
-                                ((TextView) ((TableRow) mainActivityComponent.tableGUI.getChildAt(i)).getChildAt(1)).setText(mainActivityComponent.hoursAtWorkText.getText());
+                                ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(1)).setText(applicationUIComponent.hoursAtWorkText.getText());
                             }
-                            if (mainActivityComponent.breakText.length() > 0)
+                            if (applicationUIComponent.breakText.length() > 0)
                             {
-                                ((TextView) ((TableRow) mainActivityComponent.tableGUI.getChildAt(i)).getChildAt(2)).setText(mainActivityComponent.breakText.getText());
+                                ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(2)).setText(applicationUIComponent.breakText.getText());
                             }
-                            if (mainActivityComponent.moneyPerHourText.length() > 0)
+                            if (applicationUIComponent.moneyPerHourText.length() > 0)
                             {
-                                ((TextView) ((TableRow) mainActivityComponent.tableGUI.getChildAt(i)).getChildAt(3)).setText(mainActivityComponent.moneyPerHourText.getText());
+                                ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(3)).setText(applicationUIComponent.moneyPerHourText.getText());
                             }
 
-                            dataComponent.addMoney(((TextView) ((TableRow) mainActivityComponent.tableGUI.getChildAt(i)).getChildAt(1)).getText().toString(), ((TextView) ((TableRow) mainActivityComponent.tableGUI.getChildAt(i)).getChildAt(2)).getText().toString(), ((TextView) ((TableRow) mainActivityComponent.tableGUI.getChildAt(i)).getChildAt(3)).getText().toString());
-                            ((TextView) ((TableRow) mainActivityComponent.tableGUI.getChildAt(i)).getChildAt(4)).setText(String.valueOf(dataComponent.calculateTotalMoney(((TextView) ((TableRow) mainActivityComponent.tableGUI.getChildAt(i)).getChildAt(1)).getText().toString(), ((TextView) ((TableRow) mainActivityComponent.tableGUI.getChildAt(i)).getChildAt(2)).getText().toString(), ((TextView) ((TableRow) mainActivityComponent.tableGUI.getChildAt(i)).getChildAt(3)).getText().toString())));
+                            dataComponent.addMoney(((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(1)).getText().toString(), ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(2)).getText().toString(), ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(3)).getText().toString());
+                            ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(4)).setText(String.valueOf(dataComponent.calculateTotalMoney(((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(1)).getText().toString(), ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(2)).getText().toString(), ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(3)).getText().toString())));
                         }
                     }
 
                     tableComponent.displayCalculations();
                     tableComponent.clearFields();
-                    writeFileComponent.saveToFile();
+
+                    if(canWriteToFile)
+                    {
+                        writeFileComponent.saveToFile();
+                    }
                 }
                 break;
 
             case R.id.btnRemove:
                 hideKeyboard();
 
-                if (mainActivityComponent.tableGUI.getChildCount() > 1)
+                if (applicationUIComponent.tableGUI.getChildCount() > 1)
                 {
                     tableComponent.deleteRow();
+
                     if (!tableComponent.areRowsSelected())
                     {
-                        mainActivityComponent.addButton.setText("Adauga");
-                        mainActivityComponent.deleteButton.setEnabled(false);
+                        applicationUIComponent.addButton.setText("Adauga");
+                        applicationUIComponent.deleteButton.setEnabled(false);
+                    }
+
+                    if(canWriteToFile)
+                    {
+                        writeFileComponent.saveToFile();
                     }
                 }
                 break;
@@ -95,19 +117,22 @@ public class ButtonsUI implements View.OnClickListener
             case R.id.btnBackup:
                 hideKeyboard();
 
-                File backupFile = new File(mainActivityComponent.getApplicationInfo().dataDir + "/backup " + mainActivityComponent.dateText.getText().toString() + ".txt");
-                File currentMonthFile = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/ManagerActivitate/" + mainActivityComponent.dateText.getText().toString() + ".txt");
-                if (currentMonthFile.exists())
+                File customBackupFile = new File(mainActivityComponent.getApplicationInfo().dataDir + "/backup " + applicationUIComponent.dateText.getText().toString() + ".txt");
+                File customCurrentMonthFile = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/ManagerActivitate/" + applicationUIComponent.dateText.getText().toString() + ".txt");
+
+                if (customCurrentMonthFile.exists())
                 {
                     tableComponent.deleteAllRows();
-                    readFileComponent.writeDataFromFileToTable(currentMonthFile);
+                    readFileComponent.writeDataFromFileToTable(customCurrentMonthFile);
+                    canWriteToFile = false;
                 }
                 else
                 {
-                    if (backupFile.exists())
+                    if (customBackupFile.exists())
                     {
                         tableComponent.deleteAllRows();
-                        readFileComponent.writeDataFromFileToTable(backupFile);
+                        readFileComponent.writeDataFromFileToTable(customBackupFile);
+                        canWriteToFile = false;
                     }
                 }
                 break;

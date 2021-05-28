@@ -11,15 +11,15 @@ public class WriteToFile
 {
     private AskForWritePermission askPermissionComponent;
     private Data dataComponent;
-    private MainActivity mainActivityComponent;
     private ErrorBuilder errorBuilderComponent;
+    private ApplicationUI applicationUIComponent;
 
-    public WriteToFile(AskForWritePermission askPermissionComponent, Data dataComponent, MainActivity mainActivityComponent, ErrorBuilder errorBuilderComponent)
+    public WriteToFile(AskForWritePermission askPermissionComponent, Data dataComponent, ErrorBuilder errorBuilderComponent, ApplicationUI applicationUIComponent)
     {
         this.askPermissionComponent = askPermissionComponent;
         this.dataComponent = dataComponent;
-        this.mainActivityComponent = mainActivityComponent;
         this.errorBuilderComponent = errorBuilderComponent;
+        this.applicationUIComponent = applicationUIComponent;
     }
 
     public void saveToFile()
@@ -36,13 +36,13 @@ public class WriteToFile
         String str = "";
         try
         {
-            for (int i = 1; i <= (mainActivityComponent.tableGUI.getChildCount() - 1); i++)
+            for (int i = 1; i <= (applicationUIComponent.tableGUI.getChildCount() - 1); i++)
             {
-                View columnData = ((TableRow) mainActivityComponent.tableGUI.getChildAt(i)).getChildAt(0);
-                View columnHoursAtWork = ((TableRow) mainActivityComponent.tableGUI.getChildAt(i)).getChildAt(1);
-                View columnBreakHours = ((TableRow) mainActivityComponent.tableGUI.getChildAt(i)).getChildAt(2);
-                View columnMoneyPerHour = ((TableRow) mainActivityComponent.tableGUI.getChildAt(i)).getChildAt(3);
-                View columnMoneyPerDay = ((TableRow) mainActivityComponent.tableGUI.getChildAt(i)).getChildAt(4);
+                View columnData = ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(0);
+                View columnHoursAtWork = ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(1);
+                View columnBreakHours = ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(2);
+                View columnMoneyPerHour = ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(3);
+                View columnMoneyPerDay = ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(4);
 
                 str = str + ((TextView) columnData).getText().toString() + " ----- " + ((TextView) columnHoursAtWork).getText().toString() + " ----- " + ((TextView) columnBreakHours).getText().toString() + " ----- " + ((TextView) columnMoneyPerHour).getText().toString() + " ----- " + ((TextView) columnMoneyPerDay).getText().toString() + "\n";
             }
