@@ -13,15 +13,13 @@ public class TableUI
     private ErrorBuilder errorBuilderComponent;
     private Data dataComponent;
     private MainActivity mainActivityComponent;
-    private WriteToFile writeFileComponent;
     private ApplicationUI applicationUIComponent;
 
-    public TableUI(Data dataComponent, MainActivity mainActivityComponent, ErrorBuilder errorBuilderComponent, WriteToFile writeFileComponent, ApplicationUI applicationUIComponent)
+    public TableUI(Data dataComponent, MainActivity mainActivityComponent, ErrorBuilder errorBuilderComponent, ApplicationUI applicationUIComponent)
     {
         this.dataComponent = dataComponent;
         this.mainActivityComponent = mainActivityComponent;
         this.errorBuilderComponent = errorBuilderComponent;
-        this.writeFileComponent = writeFileComponent;
         this.applicationUIComponent = applicationUIComponent;
     }
 

@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TableRow;
 import android.widget.TextView;
-import java.io.File;
 
 public class ButtonsUI implements View.OnClickListener
 {
