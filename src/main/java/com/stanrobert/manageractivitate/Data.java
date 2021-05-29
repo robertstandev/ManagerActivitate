@@ -114,17 +114,17 @@ public class Data
         return input % 1 == 0 ? parts[0] : parts[0] + ":" + String.valueOf(((Integer.valueOf(parts[1]) * 60) / 10)).substring(0, 2);
     }
 
-    public File getCurrentMonthFile()
+    public File getSavedFile(String month)
     {
-        return new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/ManagerActivitate/" + getCurrentMonth() + ".txt");
+        return new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/ManagerActivitate/" + month + ".txt");
     }
 
-    public File getBackupFile()
+    public File getSavedBackupFile(String month)
     {
-        return new File(mainActivityComponent.getApplicationInfo().dataDir + "/backup " + getCurrentMonth() + ".txt");
+        return new File(mainActivityComponent.getApplicationInfo().dataDir + "/backup " + month + ".txt");
     }
 
-    private String getCurrentMonth()
+    public String getCurrentMonth()
     {
         return new SimpleDateFormat("MM-yyyy", Locale.getDefault()).format(new Date());
     }

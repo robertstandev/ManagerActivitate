@@ -17,7 +17,7 @@ public class ButtonsUI implements View.OnClickListener
     private ReadFromFile readFileComponent;
     private ApplicationUI applicationUIComponent;
 
-    private boolean canWriteToFile = true;
+    private String loadedDate;
 
     public ButtonsUI(Data dataComponent, MainActivity mainActivityComponent, TableUI tableComponent, WriteToFile writeFileComponent, ReadFromFile readFileComponent, ApplicationUI applicationUIComponent)
     {
@@ -32,6 +32,8 @@ public class ButtonsUI implements View.OnClickListener
         applicationUIComponent.addButton.setOnClickListener(this);
         applicationUIComponent.deleteButton.setOnClickListener(this);
         applicationUIComponent.backupButton.setOnClickListener(this);
+
+        loadedDate = dataComponent.getCurrentMonth();
     }
 
     @Override
@@ -76,10 +78,11 @@ public class ButtonsUI implements View.OnClickListener
                         }
                     }
                 }
+
                 tableComponent.displayCalculations();
                 tableComponent.clearFields();
 
-                saveIfPossible();
+                saveFile();
 
                 break;
 
@@ -96,7 +99,7 @@ public class ButtonsUI implements View.OnClickListener
                         applicationUIComponent.deleteButton.setEnabled(false);
                     }
 
-                    saveIfPossible();
+                    saveFile();
                 }
                 break;
 
@@ -112,35 +115,37 @@ public class ButtonsUI implements View.OnClickListener
         }
     }
 
-    private void saveIfPossible()
+    private void saveFile()
     {
-        if(canWriteToFile)
+        if(loadedDate.equals(dataComponent.getCurrentMonth()))
         {
-            writeFileComponent.saveToFile();
+            writeFileComponent.saveToFile(dataComponent.getCurrentMonth());
+        }
+        else
+        {
+            writeFileComponent.saveToFile(loadedDate);
         }
     }
 
     private void loadPreviousMonth()
     {
-        File customBackupFile = new File(mainActivityComponent.getApplicationInfo().dataDir + "/backup " + applicationUIComponent.dateText.getText().toString() + ".txt");
-        File customCurrentMonthFile = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/ManagerActivitate/" + applicationUIComponent.dateText.getText().toString() + ".txt");
 
-        if (customCurrentMonthFile.exists())
+        if (dataComponent.getSavedFile(applicationUIComponent.dateText.getText().toString()).exists())
         {
             prepareForLoad();
-            readFileComponent.writeDataFromFileToTable(customCurrentMonthFile);
+            readFileComponent.writeDataFromFileToTable(dataComponent.getSavedFile(applicationUIComponent.dateText.getText().toString()));
         }
-        else if (customBackupFile.exists())
+        else if (dataComponent.getSavedBackupFile(applicationUIComponent.dateText.getText().toString()).exists())
         {
             prepareForLoad();
-            readFileComponent.writeDataFromFileToTable(customBackupFile);
+            readFileComponent.writeDataFromFileToTable(dataComponent.getSavedBackupFile(applicationUIComponent.dateText.getText().toString()));
         }
     }
 
     private void prepareForLoad()
     {
+        loadedDate = applicationUIComponent.dateText.getText().toString();
         tableComponent.deleteAllRows();
-        canWriteToFile = false;
     }
 
     private void hideKeyboard()

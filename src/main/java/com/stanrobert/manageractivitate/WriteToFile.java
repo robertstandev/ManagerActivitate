@@ -22,13 +22,13 @@ public class WriteToFile
         this.applicationUIComponent = applicationUIComponent;
     }
 
-    public void saveToFile()
+    public void saveToFile(String month)
     {
         askPermissionComponent.askForWritePermission();
         askPermissionComponent.verifyIfFolderExist();
 
-        writeFile(dataComponent.getCurrentMonthFile());
-        writeFile(dataComponent.getBackupFile());
+        writeFile(dataComponent.getSavedFile(month));
+        writeFile(dataComponent.getSavedBackupFile(month));
     }
 
     public void writeFile(File file)

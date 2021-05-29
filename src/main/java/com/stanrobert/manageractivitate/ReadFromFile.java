@@ -26,15 +26,15 @@ public class ReadFromFile
         askPermissionComponent.askForWritePermission();
         askPermissionComponent.verifyIfFolderExist();
 
-        if (dataComponent.getCurrentMonthFile().exists())
+        if (dataComponent.getSavedFile(dataComponent.getCurrentMonth()).exists())
         {
-            writeDataFromFileToTable(dataComponent.getCurrentMonthFile());
+            writeDataFromFileToTable(dataComponent.getSavedFile(dataComponent.getCurrentMonth()));
         }
         else
         {
-            if (dataComponent.getBackupFile().exists())
+            if (dataComponent.getSavedBackupFile(dataComponent.getCurrentMonth()).exists())
             {
-                writeDataFromFileToTable(dataComponent.getBackupFile());
+                writeDataFromFileToTable(dataComponent.getSavedBackupFile(dataComponent.getCurrentMonth()));
             }
         }
     }
