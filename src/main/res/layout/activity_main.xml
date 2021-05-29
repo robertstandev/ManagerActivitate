@@ -36,7 +36,7 @@
                 android:layout_margin="8dp"
                 android:textColorHint="@color/colorAccent"
                 android:fontFamily="serif"
-                android:hint="01-01-2020"
+                android:hint="01-01-2021"
                 android:inputType="datetime"
                 android:digits="0123456789-"
                 android:maxLength="10"

@@ -48,14 +48,6 @@ public class ButtonsUI implements View.OnClickListener
                     {
                         tableComponent.addRow(false, null, null, null, null, null);
                         dataComponent.addMoney(applicationUIComponent.hoursAtWorkText.getText().toString(), applicationUIComponent.breakText.getText().toString(), applicationUIComponent.moneyPerHourText.getText().toString());
-
-                        tableComponent.displayCalculations();
-                        tableComponent.clearFields();
-
-                        if(canWriteToFile)
-                        {
-                            writeFileComponent.saveToFile();
-                        }
                     }
                 }
                 else
@@ -83,15 +75,12 @@ public class ButtonsUI implements View.OnClickListener
                             ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(4)).setText(String.valueOf(dataComponent.calculateTotalMoney(((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(1)).getText().toString(), ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(2)).getText().toString(), ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(3)).getText().toString())));
                         }
                     }
-
-                    tableComponent.displayCalculations();
-                    tableComponent.clearFields();
-
-                    if(canWriteToFile)
-                    {
-                        writeFileComponent.saveToFile();
-                    }
                 }
+                tableComponent.displayCalculations();
+                tableComponent.clearFields();
+
+                saveIfPossible();
+
                 break;
 
             case R.id.btnRemove:
@@ -107,39 +96,51 @@ public class ButtonsUI implements View.OnClickListener
                         applicationUIComponent.deleteButton.setEnabled(false);
                     }
 
-                    if(canWriteToFile)
-                    {
-                        writeFileComponent.saveToFile();
-                    }
+                    saveIfPossible();
                 }
                 break;
 
             case R.id.btnBackup:
                 hideKeyboard();
+                loadPreviousMonth();
 
-                File customBackupFile = new File(mainActivityComponent.getApplicationInfo().dataDir + "/backup " + applicationUIComponent.dateText.getText().toString() + ".txt");
-                File customCurrentMonthFile = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/ManagerActivitate/" + applicationUIComponent.dateText.getText().toString() + ".txt");
-
-                if (customCurrentMonthFile.exists())
-                {
-                    tableComponent.deleteAllRows();
-                    readFileComponent.writeDataFromFileToTable(customCurrentMonthFile);
-                    canWriteToFile = false;
-                }
-                else
-                {
-                    if (customBackupFile.exists())
-                    {
-                        tableComponent.deleteAllRows();
-                        readFileComponent.writeDataFromFileToTable(customBackupFile);
-                        canWriteToFile = false;
-                    }
-                }
                 break;
             case R.id.lblMain:
                 hideKeyboard();
+
                 break;
         }
+    }
+
+    private void saveIfPossible()
+    {
+        if(canWriteToFile)
+        {
+            writeFileComponent.saveToFile();
+        }
+    }
+
+    private void loadPreviousMonth()
+    {
+        File customBackupFile = new File(mainActivityComponent.getApplicationInfo().dataDir + "/backup " + applicationUIComponent.dateText.getText().toString() + ".txt");
+        File customCurrentMonthFile = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/ManagerActivitate/" + applicationUIComponent.dateText.getText().toString() + ".txt");
+
+        if (customCurrentMonthFile.exists())
+        {
+            prepareForLoad();
+            readFileComponent.writeDataFromFileToTable(customCurrentMonthFile);
+        }
+        else if (customBackupFile.exists())
+        {
+            prepareForLoad();
+            readFileComponent.writeDataFromFileToTable(customBackupFile);
+        }
+    }
+
+    private void prepareForLoad()
+    {
+        tableComponent.deleteAllRows();
+        canWriteToFile = false;
     }
 
     private void hideKeyboard()
