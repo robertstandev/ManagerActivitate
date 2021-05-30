@@ -23,7 +23,7 @@ public class TableUI
         this.applicationUIComponent = applicationUIComponent;
     }
 
-    private TextView createColumns()
+    private TextView createColumnUI()
     {
         TextView column = new TextView(mainActivityComponent);
         column.setTextSize(15);
@@ -34,34 +34,23 @@ public class TableUI
         return column;
     }
 
-    public void addRow(boolean fromFile, String column1, String column2, String column3, String column4, String column5)
+    public void rowBuilder(String column1Text, String column2Text, String column3Text, String column4Text, String column5Text)
     {
         try
         {
             applicationUIComponent.tableRow = new TableRow(mainActivityComponent);
 
-            applicationUIComponent.columnText1 = createColumns();
-            applicationUIComponent.columnText2 = createColumns();
-            applicationUIComponent.columnText3 = createColumns();
-            applicationUIComponent.columnText4 = createColumns();
-            applicationUIComponent.columnText5 = createColumns();
+            applicationUIComponent.columnText1 = createColumnUI();
+            applicationUIComponent.columnText2 = createColumnUI();
+            applicationUIComponent.columnText3 = createColumnUI();
+            applicationUIComponent.columnText4 = createColumnUI();
+            applicationUIComponent.columnText5 = createColumnUI();
 
-            if (!fromFile)
-            {
-                applicationUIComponent.columnText1.setText(applicationUIComponent.dateText.getText());
-                applicationUIComponent.columnText2.setText(applicationUIComponent.hoursAtWorkText.getText());
-                applicationUIComponent.columnText3.setText(applicationUIComponent.breakText.getText());
-                applicationUIComponent.columnText4.setText(applicationUIComponent.moneyPerHourText.getText());
-                applicationUIComponent.columnText5.setText(String.valueOf(dataComponent.calculateTotalMoney(applicationUIComponent.hoursAtWorkText.getText().toString(), applicationUIComponent.breakText.getText().toString(), applicationUIComponent.moneyPerHourText.getText().toString())));
-            }
-            else
-            {
-                applicationUIComponent.columnText1.setText(column1);
-                applicationUIComponent.columnText2.setText(column2);
-                applicationUIComponent.columnText3.setText(column3);
-                applicationUIComponent.columnText4.setText(column4);
-                applicationUIComponent.columnText5.setText(column5);
-            }
+            applicationUIComponent.columnText1.setText(column1Text);
+            applicationUIComponent.columnText2.setText(column2Text);
+            applicationUIComponent.columnText3.setText(column3Text);
+            applicationUIComponent.columnText4.setText(column4Text);
+            applicationUIComponent.columnText5.setText(column5Text);
 
             applicationUIComponent.tableRow.addView(applicationUIComponent.columnText1);
             applicationUIComponent.tableRow.addView(applicationUIComponent.columnText2);
@@ -83,11 +72,7 @@ public class TableUI
                     else
                     {
                         view.setBackgroundColor(Color.rgb(218, 232, 252));
-                        if (!areRowsSelected())
-                        {
-                            applicationUIComponent.addButton.setText("Adauga");
-                            applicationUIComponent.deleteButton.setEnabled(false);
-                        }
+                        checkRowSelection();
                     }
                 }
             });
@@ -99,9 +84,52 @@ public class TableUI
         }
     }
 
+    public void createRow()
+    {
+        if (applicationUIComponent.dateText.length() > 0 && applicationUIComponent.hoursAtWorkText.length() > 2 && applicationUIComponent.hoursAtWorkText.getText().toString().contains("-") && applicationUIComponent.breakText.length() > 0 && applicationUIComponent.moneyPerHourText.length() > 0)
+        {
+            rowBuilder
+            (
+                    applicationUIComponent.dateText.getText().toString(),
+                    applicationUIComponent.hoursAtWorkText.getText().toString(),
+                    applicationUIComponent.breakText.getText().toString(),
+                    applicationUIComponent.moneyPerHourText.getText().toString(),
+                    String.valueOf(dataComponent.calculateTotalMoney(applicationUIComponent.hoursAtWorkText.getText().toString(), applicationUIComponent.breakText.getText().toString(), applicationUIComponent.moneyPerHourText.getText().toString()))
+            );
+            dataComponent.addMoney(applicationUIComponent.hoursAtWorkText.getText().toString(), applicationUIComponent.breakText.getText().toString(), applicationUIComponent.moneyPerHourText.getText().toString());
+        }
+    }
+
+    public void modifyRow()
+    {
+        for (int i = applicationUIComponent.tableGUI.getChildCount() - 1; i >= 0; i--)
+        {
+            if (((ColorDrawable) applicationUIComponent.tableGUI.getChildAt(i).getBackground()).getColor() == Color.rgb(230, 100, 100))
+            {
+                dataComponent.substractMoney(i);
+
+                if (applicationUIComponent.hoursAtWorkText.length() > 2 && applicationUIComponent.hoursAtWorkText.getText().toString().contains("-"))
+                {
+                    ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(1)).setText(applicationUIComponent.hoursAtWorkText.getText());
+                }
+                if (applicationUIComponent.breakText.length() > 0)
+                {
+                    ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(2)).setText(applicationUIComponent.breakText.getText());
+                }
+                if (applicationUIComponent.moneyPerHourText.length() > 0)
+                {
+                    ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(3)).setText(applicationUIComponent.moneyPerHourText.getText());
+                }
+
+                dataComponent.addMoney(((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(1)).getText().toString(), ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(2)).getText().toString(), ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(3)).getText().toString());
+                ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(4)).setText(String.valueOf(dataComponent.calculateTotalMoney(((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(1)).getText().toString(), ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(2)).getText().toString(), ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(3)).getText().toString())));
+            }
+        }
+    }
+
     public void deleteRow()
     {
-        try
+        if (applicationUIComponent.tableGUI.getChildCount() > 1)
         {
             for (int i = applicationUIComponent.tableGUI.getChildCount() - 1; i >= 0; i--)
             {
@@ -111,11 +139,9 @@ public class TableUI
                     applicationUIComponent.tableGUI.removeViewAt(i);
                 }
             }
+
             displayCalculations();
-        }
-        catch (Exception e)
-        {
-            errorBuilderComponent.errorConstructor("la calcul");
+            checkRowSelection();
         }
     }
 
@@ -135,16 +161,24 @@ public class TableUI
         applicationUIComponent.totalBreakLabel.setText("Ore Pauza:\n" + dataComponent.convertDoubleToUserFormat(dataComponent.getTotalBreak()) + "h");
     }
 
-    public boolean areRowsSelected()
+    private void checkRowSelection()
+    {
+        if (areAllRowsDeselected()) {
+            applicationUIComponent.addButton.setText("Adauga");
+            applicationUIComponent.deleteButton.setEnabled(false);
+        }
+    }
+
+    public boolean areAllRowsDeselected()
     {
         for (int i = 0; i < applicationUIComponent.tableGUI.getChildCount(); i++)
         {
             if (((ColorDrawable) applicationUIComponent.tableGUI.getChildAt(i).getBackground()).getColor() == Color.rgb(230, 100, 100))
             {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     public void clearFields()

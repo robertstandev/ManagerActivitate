@@ -1,11 +1,7 @@
 package com.stanrobert.manageractivitate;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.TableRow;
-import android.widget.TextView;
 
 public class ButtonsUI implements View.OnClickListener
 {
@@ -45,37 +41,11 @@ public class ButtonsUI implements View.OnClickListener
 
                 if (applicationUIComponent.addButton.getText() == "Adauga")
                 {
-                    if (applicationUIComponent.dateText.length() > 0 && applicationUIComponent.hoursAtWorkText.length() > 2 && applicationUIComponent.hoursAtWorkText.getText().toString().contains("-") && applicationUIComponent.breakText.length() > 0 && applicationUIComponent.moneyPerHourText.length() > 0)
-                    {
-                        tableComponent.addRow(false, null, null, null, null, null);
-                        dataComponent.addMoney(applicationUIComponent.hoursAtWorkText.getText().toString(), applicationUIComponent.breakText.getText().toString(), applicationUIComponent.moneyPerHourText.getText().toString());
-                    }
+                    tableComponent.createRow();
                 }
                 else
                 {
-                    for (int i = applicationUIComponent.tableGUI.getChildCount() - 1; i >= 0; i--)
-                    {
-                        if (((ColorDrawable) applicationUIComponent.tableGUI.getChildAt(i).getBackground()).getColor() == Color.rgb(230, 100, 100))
-                        {
-                            dataComponent.substractMoney(i);
-
-                            if (applicationUIComponent.hoursAtWorkText.length() > 2 && applicationUIComponent.hoursAtWorkText.getText().toString().contains("-"))
-                            {
-                                ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(1)).setText(applicationUIComponent.hoursAtWorkText.getText());
-                            }
-                            if (applicationUIComponent.breakText.length() > 0)
-                            {
-                                ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(2)).setText(applicationUIComponent.breakText.getText());
-                            }
-                            if (applicationUIComponent.moneyPerHourText.length() > 0)
-                            {
-                                ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(3)).setText(applicationUIComponent.moneyPerHourText.getText());
-                            }
-
-                            dataComponent.addMoney(((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(1)).getText().toString(), ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(2)).getText().toString(), ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(3)).getText().toString());
-                            ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(4)).setText(String.valueOf(dataComponent.calculateTotalMoney(((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(1)).getText().toString(), ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(2)).getText().toString(), ((TextView) ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(3)).getText().toString())));
-                        }
-                    }
+                    tableComponent.modifyRow();
                 }
 
                 tableComponent.displayCalculations();
@@ -88,18 +58,10 @@ public class ButtonsUI implements View.OnClickListener
             case R.id.btnRemove:
                 hideKeyboard();
 
-                if (applicationUIComponent.tableGUI.getChildCount() > 1)
-                {
-                    tableComponent.deleteRow();
+                tableComponent.deleteRow();
 
-                    if (!tableComponent.areRowsSelected())
-                    {
-                        applicationUIComponent.addButton.setText("Adauga");
-                        applicationUIComponent.deleteButton.setEnabled(false);
-                    }
+                saveFile();
 
-                    saveFile();
-                }
                 break;
 
             case R.id.btnBackup:
