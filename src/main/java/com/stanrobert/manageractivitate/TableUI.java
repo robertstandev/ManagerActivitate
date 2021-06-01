@@ -163,7 +163,8 @@ public class TableUI
 
     private void checkRowSelection()
     {
-        if (areAllRowsDeselected()) {
+        if (areAllRowsDeselected())
+        {
             applicationUIComponent.addButton.setText("Adauga");
             applicationUIComponent.deleteButton.setEnabled(false);
         }

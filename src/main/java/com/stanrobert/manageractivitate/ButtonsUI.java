@@ -52,6 +52,7 @@ public class ButtonsUI implements View.OnClickListener
                 tableComponent.clearFields();
 
                 saveFile();
+                writeFileComponent.takeScreenShot();
 
                 break;
 
@@ -61,6 +62,7 @@ public class ButtonsUI implements View.OnClickListener
                 tableComponent.deleteRow();
 
                 saveFile();
+                writeFileComponent.takeScreenShot();
 
                 break;
 

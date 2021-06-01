@@ -2,10 +2,10 @@ package com.stanrobert.manageractivitate;
 
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -24,39 +24,42 @@ public class ApplicationUI
     TableRow tableRow;
     TextView columnText1, columnText2, columnText3, columnText4, columnText5;
     TextView totalMoneyLabel, totalHoursLabel, totalBreakLabel;
+    LinearLayout totalStats;
 
     public ApplicationUI(MainActivity mainActivityComponent)
     {
-        dateText = (EditText) mainActivityComponent.findViewById(R.id.dateField);
-        dateText.setText(new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()));
+        this.dateText = mainActivityComponent.findViewById(R.id.dateField);
+        this.dateText.setText(new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()));
 
-        hoursAtWorkText = (EditText) mainActivityComponent.findViewById(R.id.workHoursField);
+        this.hoursAtWorkText = mainActivityComponent.findViewById(R.id.workHoursField);
 
-        breakText = (EditText) mainActivityComponent.findViewById(R.id.breakField);
+        this.breakText = mainActivityComponent.findViewById(R.id.breakField);
 
-        moneyPerHourText = (EditText) mainActivityComponent.findViewById(R.id.moneyPerHourField);
-        moneyPerHourText.setText("12");
+        this.moneyPerHourText = mainActivityComponent.findViewById(R.id.moneyPerHourField);
+        this.moneyPerHourText.setText("12");
 
-        totalMoneyLabel = (TextView) mainActivityComponent.findViewById(R.id.totalMoney);
-        totalMoneyLabel.setText("Bani:\n0 RON");
+        this.totalMoneyLabel = mainActivityComponent.findViewById(R.id.totalMoney);
+        this.totalMoneyLabel.setText("Bani:\n0 RON");
 
-        totalHoursLabel = (TextView) mainActivityComponent.findViewById(R.id.totalHours);
-        totalHoursLabel.setText("Ore La Munca:\n0 h");
+        this.totalHoursLabel = mainActivityComponent.findViewById(R.id.totalHours);
+        this.totalHoursLabel.setText("Ore La Munca:\n0 h");
 
-        totalBreakLabel = (TextView) mainActivityComponent.findViewById(R.id.totalBreak);
-        totalBreakLabel.setText("Ore Pauza:\n0 h");
+        this.totalBreakLabel = mainActivityComponent.findViewById(R.id.totalBreak);
+        this.totalBreakLabel.setText("Ore Pauza:\n0 h");
 
-        mainLabel = (TextView) mainActivityComponent.findViewById(R.id.lblMain);
+        this.mainLabel = mainActivityComponent.findViewById(R.id.lblMain);
 
-        addButton = (Button) mainActivityComponent.findViewById(R.id.btnAdd);
-        addButton.setText("Adauga");
+        this.addButton = mainActivityComponent.findViewById(R.id.btnAdd);
+        this.addButton.setText("Adauga");
 
-        deleteButton = (Button) mainActivityComponent.findViewById(R.id.btnRemove);
-        deleteButton.setEnabled(false);
+        this.deleteButton = mainActivityComponent.findViewById(R.id.btnRemove);
+        this.deleteButton.setEnabled(false);
 
-        backupButton = (Button) mainActivityComponent.findViewById(R.id.btnBackup);
+        this.backupButton = mainActivityComponent.findViewById(R.id.btnBackup);
 
-        tableGUI = (TableLayout) mainActivityComponent.findViewById(R.id.tableLayoutId);
-        tableRow = (TableRow) mainActivityComponent.findViewById(R.id.tableRowId);
+        this.tableGUI = mainActivityComponent.findViewById(R.id.tableLayoutId);
+        this.tableRow = mainActivityComponent.findViewById(R.id.tableRowId);
+
+        this.totalStats = mainActivityComponent.findViewById(R.id.totalStats);
     }
 }

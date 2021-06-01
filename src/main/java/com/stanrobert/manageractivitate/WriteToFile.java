@@ -1,11 +1,17 @@
 package com.stanrobert.manageractivitate;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.view.View;
 import android.widget.TableRow;
 import android.widget.TextView;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class WriteToFile
 {
@@ -54,5 +60,69 @@ public class WriteToFile
         {
             errorBuilderComponent.errorConstructor("scriere fisier");
         }
+    }
+
+    public void takeScreenShot()
+    {
+        askPermissionComponent.askForWritePermission();
+        askPermissionComponent.verifyIfFolderExist();
+
+        ArrayList<Bitmap> bitmapArray = new ArrayList<Bitmap>();
+        bitmapArray.add(getBitmapFromView(applicationUIComponent.totalStats));
+        bitmapArray.add(getBitmapFromView(applicationUIComponent.tableGUI));
+
+        try
+        {
+            FileOutputStream outputStream = new FileOutputStream(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/ManagerActivitate/" + dataComponent.getCurrentMonth() + ".png");
+
+            combineImages(bitmapArray).compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+            outputStream.flush();
+            outputStream.close();
+        }
+        catch (IOException e)
+        {
+            errorBuilderComponent.errorConstructor("creare imagine");
+        }
+    }
+
+    private Bitmap getBitmapFromView(View view)
+    {
+        view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+
+        Bitmap bitmap = Bitmap.createBitmap(view.getMeasuredWidth(), view.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
+
+        Canvas canvas = new Canvas(bitmap);
+        canvas.drawColor(Color.WHITE);
+
+        view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
+        view.draw(canvas);
+
+        return bitmap;
+    }
+
+    private Bitmap combineImages(ArrayList<Bitmap> listOfBitmapsToStitch)
+    {
+        Bitmap bitmapResult = null;
+
+        int width = 0, height = 0;
+
+        for (Bitmap bitmap : listOfBitmapsToStitch)
+        {
+            width = Math.max(width, bitmap.getWidth());
+            height = height + bitmap.getHeight();
+        }
+        bitmapResult = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+
+        Canvas comboImageCanvas = new Canvas(bitmapResult);
+        comboImageCanvas.drawColor(Color.WHITE);
+
+        int currentHeight = 0;
+        for (Bitmap bitmap : listOfBitmapsToStitch)
+        {
+            comboImageCanvas.drawBitmap(bitmap, (comboImageCanvas.getWidth() - bitmap.getWidth()) / 2, currentHeight, null);
+            currentHeight = currentHeight + bitmap.getHeight();
+        }
+
+        return bitmapResult;
     }
 }
