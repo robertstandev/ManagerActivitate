@@ -22,7 +22,9 @@ For adding data:
 <br>
 'All textboxes must be filled'
 <br>
-'Automatically saves to files when adding new data'
+'Automatically saves to files when adding/modifying data'
+<br>
+'Automatically creates a screenshot of the table when adding/modifying data'
 <br>
 <br>
 For modification:
@@ -45,6 +47,10 @@ For reading the previous months:
 <br>
 Saving files in:
 <br>
-Visible :  /ManagerActivitate/ + CurrentMonthAndYear + .txt
+Visible :
+<br>
+/ManagerActivitate/ + CurrentMonthAndYear + .txt
+<br>
+/ManagerActivitate/ + CurrentMonthAndYear + .png
 <br>
 Invisible (inaccessible except from PC or rooted Phone) : data/user/0/com.stanrobert.manageractivitate/backup + CurrentMonthAndYear + .txt
