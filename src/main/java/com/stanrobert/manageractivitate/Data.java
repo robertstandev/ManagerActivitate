@@ -116,7 +116,17 @@ public class Data
 
     public File getSavedFile(String month)
     {
-        return new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/ManagerActivitate/" + month + ".txt");
+        return new File(getSDCardLocation(month) + ".txt");
+    }
+
+    public File getSavedImage(String month)
+    {
+        return new File(getSDCardLocation(month) + ".png");
+    }
+
+    private String getSDCardLocation(String month)
+    {
+        return android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/ManagerActivitate/" + month;
     }
 
     public File getSavedBackupFile(String month)

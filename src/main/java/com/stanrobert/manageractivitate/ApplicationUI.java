@@ -1,5 +1,7 @@
 package com.stanrobert.manageractivitate;
 
+import android.os.Build;
+import android.text.InputType;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -26,8 +28,7 @@ public class ApplicationUI
     TextView totalMoneyLabel, totalHoursLabel, totalBreakLabel;
     LinearLayout totalStats;
 
-    public ApplicationUI(MainActivity mainActivityComponent)
-    {
+    public ApplicationUI(MainActivity mainActivityComponent) {
         this.dateText = mainActivityComponent.findViewById(R.id.dateField);
         this.dateText.setText(new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()));
 
@@ -61,5 +62,15 @@ public class ApplicationUI
         this.tableRow = mainActivityComponent.findViewById(R.id.tableRowId);
 
         this.totalStats = mainActivityComponent.findViewById(R.id.totalStats);
+
+        //exista un bug in meizu,lge si samsung cand folosesti android:inputType="datetime" (in activity_main.xml)
+        //asa ca atunci cand apesi pe textboxurile de pus data, ore la munca si pauza nu vor aparea ":" si "-" deci nu poti folosi aplicatia
+        //in cazul asta fac ca sa se schimbe inputType-ul
+        if (Build.MANUFACTURER.toLowerCase(Locale.ENGLISH).equals("meizu") || Build.MANUFACTURER.toLowerCase(Locale.ENGLISH).equals("samsung") || Build.MANUFACTURER.toLowerCase(Locale.ENGLISH).equals("lge"))
+        {
+            this.dateText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI);
+            this.hoursAtWorkText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI);
+            this.breakText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI);
+        }
     }
 }

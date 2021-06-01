@@ -73,7 +73,7 @@ public class WriteToFile
 
         try
         {
-            FileOutputStream outputStream = new FileOutputStream(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/ManagerActivitate/" + dataComponent.getCurrentMonth() + ".png");
+            FileOutputStream outputStream = new FileOutputStream(dataComponent.getSavedImage(dataComponent.getCurrentMonth()));
 
             combineImages(bitmapArray).compress(Bitmap.CompressFormat.PNG, 100, outputStream);
             outputStream.flush();
