@@ -24,11 +24,12 @@ public class ApplicationUI
     Button backupButton;
     TableLayout tableGUI;
     TableRow tableRow;
-    TextView columnText1, columnText2, columnText3, columnText4, columnText5;
+    TextView columnText;
     TextView totalMoneyLabel, totalHoursLabel, totalBreakLabel;
     LinearLayout totalStats;
 
-    public ApplicationUI(MainActivity mainActivityComponent) {
+    public ApplicationUI(MainActivity mainActivityComponent)
+    {
         this.dateText = mainActivityComponent.findViewById(R.id.dateField);
         this.dateText.setText(new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()));
 
@@ -59,13 +60,13 @@ public class ApplicationUI
         this.backupButton = mainActivityComponent.findViewById(R.id.btnBackup);
 
         this.tableGUI = mainActivityComponent.findViewById(R.id.tableLayoutId);
+
         this.tableRow = mainActivityComponent.findViewById(R.id.tableRowId);
 
         this.totalStats = mainActivityComponent.findViewById(R.id.totalStats);
 
-        //exista un bug in meizu,lge si samsung cand folosesti android:inputType="datetime" (in activity_main.xml)
-        //asa ca atunci cand apesi pe textboxurile de pus data, ore la munca si pauza nu vor aparea ":" si "-" deci nu poti folosi aplicatia
-        //in cazul asta fac ca sa se schimbe inputType-ul
+        //bug in meizu,lge si samsung when using android:inputType="datetime" (in activity_main.xml)
+        //not showing ":" and "-" making app unusable
         if (Build.MANUFACTURER.toLowerCase(Locale.ENGLISH).equals("meizu") || Build.MANUFACTURER.toLowerCase(Locale.ENGLISH).equals("samsung") || Build.MANUFACTURER.toLowerCase(Locale.ENGLISH).equals("lge"))
         {
             this.dateText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI);

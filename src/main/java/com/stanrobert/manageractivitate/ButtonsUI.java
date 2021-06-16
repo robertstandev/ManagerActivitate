@@ -12,8 +12,6 @@ public class ButtonsUI implements View.OnClickListener
     private ReadFromFile readFileComponent;
     private ApplicationUI applicationUIComponent;
 
-    private String loadedDate;
-
     public ButtonsUI(Data dataComponent, MainActivity mainActivityComponent, TableUI tableComponent, WriteToFile writeFileComponent, ReadFromFile readFileComponent, ApplicationUI applicationUIComponent)
     {
         this.dataComponent = dataComponent;
@@ -27,8 +25,6 @@ public class ButtonsUI implements View.OnClickListener
         applicationUIComponent.addButton.setOnClickListener(this);
         applicationUIComponent.deleteButton.setOnClickListener(this);
         applicationUIComponent.backupButton.setOnClickListener(this);
-
-        loadedDate = dataComponent.getCurrentMonth();
     }
 
     @Override
@@ -51,7 +47,7 @@ public class ButtonsUI implements View.OnClickListener
                 tableComponent.displayCalculations();
                 tableComponent.clearFields();
 
-                saveFile();
+                writeFileComponent.saveToFile();
                 writeFileComponent.takeScreenShot();
 
                 break;
@@ -61,7 +57,7 @@ public class ButtonsUI implements View.OnClickListener
 
                 tableComponent.deleteRow();
 
-                saveFile();
+                writeFileComponent.saveToFile();
                 writeFileComponent.takeScreenShot();
 
                 break;
@@ -75,18 +71,6 @@ public class ButtonsUI implements View.OnClickListener
                 hideKeyboard();
 
                 break;
-        }
-    }
-
-    private void saveFile()
-    {
-        if(loadedDate.equals(dataComponent.getCurrentMonth()))
-        {
-            writeFileComponent.saveToFile(dataComponent.getCurrentMonth());
-        }
-        else
-        {
-            writeFileComponent.saveToFile(loadedDate);
         }
     }
 
@@ -107,7 +91,7 @@ public class ButtonsUI implements View.OnClickListener
 
     private void prepareForLoad()
     {
-        loadedDate = applicationUIComponent.dateText.getText().toString();
+        dataComponent.setLoadedDate(applicationUIComponent.dateText.getText().toString());
         tableComponent.deleteAllRows();
     }
 

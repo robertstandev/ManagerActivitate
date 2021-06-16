@@ -3,7 +3,9 @@ package com.stanrobert.manageractivitate;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.TableRow;
 import android.widget.TextView;
 import java.io.BufferedWriter;
@@ -28,13 +30,25 @@ public class WriteToFile
         this.applicationUIComponent = applicationUIComponent;
     }
 
-    public void saveToFile(String month)
+    private String getLoadedMonth()
+    {
+        if(dataComponent.getLoadedDate().equals(dataComponent.getCurrentMonth()))
+        {
+            return dataComponent.getCurrentMonth();
+        }
+        else
+        {
+            return dataComponent.getLoadedDate();
+        }
+    }
+
+    public void saveToFile()
     {
         askPermissionComponent.askForWritePermission();
         askPermissionComponent.verifyIfFolderExist();
 
-        writeFile(dataComponent.getSavedFile(month));
-        writeFile(dataComponent.getSavedBackupFile(month));
+        writeFile(dataComponent.getSavedFile(getLoadedMonth()));
+        writeFile(dataComponent.getSavedBackupFile(getLoadedMonth()));
     }
 
     public void writeFile(File file)
@@ -64,37 +78,41 @@ public class WriteToFile
 
     public void takeScreenShot()
     {
-        askPermissionComponent.askForWritePermission();
-        askPermissionComponent.verifyIfFolderExist();
-
-        ArrayList<Bitmap> bitmapArray = new ArrayList<Bitmap>();
-        bitmapArray.add(getBitmapFromView(applicationUIComponent.totalStats));
-        bitmapArray.add(getBitmapFromView(applicationUIComponent.tableGUI));
-
-        try
-        {
-            FileOutputStream outputStream = new FileOutputStream(dataComponent.getSavedImage(dataComponent.getCurrentMonth()));
-
-            combineImages(bitmapArray).compress(Bitmap.CompressFormat.PNG, 100, outputStream);
-            outputStream.flush();
-            outputStream.close();
-        }
-        catch (IOException e)
-        {
-            errorBuilderComponent.errorConstructor("creare imagine");
-        }
+        //make sure the table has finished updating , else it will give you incorrect data and after that send the screenshot and save commands
+        applicationUIComponent.tableGUI.getViewTreeObserver().addOnGlobalLayoutListener(tableGUILayoutListener);
     }
+
+    ViewTreeObserver.OnGlobalLayoutListener tableGUILayoutListener = new ViewTreeObserver.OnGlobalLayoutListener()
+    {
+        @Override
+        public void onGlobalLayout()
+        {
+            ViewTreeObserver observer = applicationUIComponent.tableGUI.getViewTreeObserver();
+            observer.removeOnGlobalLayoutListener(this);
+
+            ArrayList<Bitmap> bitmapArray = new ArrayList<Bitmap>();
+
+            bitmapArray.add(getBitmapFromView(applicationUIComponent.totalStats));
+            bitmapArray.add(getBitmapFromView(applicationUIComponent.tableGUI));
+
+            writeScreenShotToFile(bitmapArray);
+        }
+    };
 
     private Bitmap getBitmapFromView(View view)
     {
-        view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-
-        Bitmap bitmap = Bitmap.createBitmap(view.getMeasuredWidth(), view.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
-
+        Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
-        canvas.drawColor(Color.WHITE);
+        Drawable bgDrawable = view.getBackground();
 
-        view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
+        if (bgDrawable != null) {
+            bgDrawable.draw(canvas);
+        }
+        else
+        {
+            canvas.drawColor(Color.WHITE);
+        }
+
         view.draw(canvas);
 
         return bitmap;
@@ -102,8 +120,6 @@ public class WriteToFile
 
     private Bitmap combineImages(ArrayList<Bitmap> listOfBitmapsToStitch)
     {
-        Bitmap bitmapResult = null;
-
         int width = 0, height = 0;
 
         for (Bitmap bitmap : listOfBitmapsToStitch)
@@ -111,7 +127,7 @@ public class WriteToFile
             width = Math.max(width, bitmap.getWidth());
             height = height + bitmap.getHeight();
         }
-        bitmapResult = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Bitmap bitmapResult = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
 
         Canvas comboImageCanvas = new Canvas(bitmapResult);
         comboImageCanvas.drawColor(Color.WHITE);
@@ -124,5 +140,24 @@ public class WriteToFile
         }
 
         return bitmapResult;
+    }
+
+    private void writeScreenShotToFile(ArrayList<Bitmap> bitmapArray)
+    {
+        askPermissionComponent.askForWritePermission();
+        askPermissionComponent.verifyIfFolderExist();
+
+        try
+        {
+            FileOutputStream outputStream = new FileOutputStream(dataComponent.getSavedImage(getLoadedMonth()));
+
+            combineImages(bitmapArray).compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+            outputStream.flush();
+            outputStream.close();
+        }
+        catch (IOException e)
+        {
+            errorBuilderComponent.errorConstructor("creare imagine");
+        }
     }
 }

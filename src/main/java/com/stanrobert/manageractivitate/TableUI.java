@@ -23,7 +23,7 @@ public class TableUI
         this.applicationUIComponent = applicationUIComponent;
     }
 
-    private TextView createColumnUI()
+    private TextView createRowUIItem()
     {
         TextView column = new TextView(mainActivityComponent);
         column.setTextSize(15);
@@ -34,29 +34,19 @@ public class TableUI
         return column;
     }
 
-    public void rowBuilder(String column1Text, String column2Text, String column3Text, String column4Text, String column5Text)
+    public void rowBuilder(String[] columnTextToAdd)
     {
         try
         {
             applicationUIComponent.tableRow = new TableRow(mainActivityComponent);
 
-            applicationUIComponent.columnText1 = createColumnUI();
-            applicationUIComponent.columnText2 = createColumnUI();
-            applicationUIComponent.columnText3 = createColumnUI();
-            applicationUIComponent.columnText4 = createColumnUI();
-            applicationUIComponent.columnText5 = createColumnUI();
+            for(int i = 0 ; i < 5 ; i++)
+            {
+                applicationUIComponent.columnText = createRowUIItem();
+                applicationUIComponent.columnText.setText(columnTextToAdd[i]);
+                applicationUIComponent.tableRow.addView(applicationUIComponent.columnText);
+            }
 
-            applicationUIComponent.columnText1.setText(column1Text);
-            applicationUIComponent.columnText2.setText(column2Text);
-            applicationUIComponent.columnText3.setText(column3Text);
-            applicationUIComponent.columnText4.setText(column4Text);
-            applicationUIComponent.columnText5.setText(column5Text);
-
-            applicationUIComponent.tableRow.addView(applicationUIComponent.columnText1);
-            applicationUIComponent.tableRow.addView(applicationUIComponent.columnText2);
-            applicationUIComponent.tableRow.addView(applicationUIComponent.columnText3);
-            applicationUIComponent.tableRow.addView(applicationUIComponent.columnText4);
-            applicationUIComponent.tableRow.addView(applicationUIComponent.columnText5);
             applicationUIComponent.tableRow.setBackgroundColor(Color.rgb(218, 232, 252));
             applicationUIComponent.tableRow.setPadding(5, 0, 5, 0);
 
@@ -90,11 +80,14 @@ public class TableUI
         {
             rowBuilder
             (
-                    applicationUIComponent.dateText.getText().toString(),
-                    applicationUIComponent.hoursAtWorkText.getText().toString(),
-                    applicationUIComponent.breakText.getText().toString(),
-                    applicationUIComponent.moneyPerHourText.getText().toString(),
-                    String.valueOf(dataComponent.calculateTotalMoney(applicationUIComponent.hoursAtWorkText.getText().toString(), applicationUIComponent.breakText.getText().toString(), applicationUIComponent.moneyPerHourText.getText().toString()))
+                    new String[]
+                    {
+                            applicationUIComponent.dateText.getText().toString(),
+                            applicationUIComponent.hoursAtWorkText.getText().toString(),
+                            applicationUIComponent.breakText.getText().toString(),
+                            applicationUIComponent.moneyPerHourText.getText().toString(),
+                            String.valueOf(dataComponent.calculateTotalMoney(applicationUIComponent.hoursAtWorkText.getText().toString(), applicationUIComponent.breakText.getText().toString(), applicationUIComponent.moneyPerHourText.getText().toString()))
+                    }
             );
             dataComponent.addMoney(applicationUIComponent.hoursAtWorkText.getText().toString(), applicationUIComponent.breakText.getText().toString(), applicationUIComponent.moneyPerHourText.getText().toString());
         }

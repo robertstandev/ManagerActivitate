@@ -49,7 +49,7 @@ public class ReadFromFile
             while ((line = br.readLine()) != null)
             {
                 parts = line.split("\\ ----- ");
-                tableComponent.rowBuilder(parts[0], parts[1], parts[2], parts[3], parts[4]);
+                tableComponent.rowBuilder(new String[]{parts[0], parts[1], parts[2], parts[3], parts[4]});
                 dataComponent.addMoney(parts[1], parts[2], parts[3]);
             }
             br.close();

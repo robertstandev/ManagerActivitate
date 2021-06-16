@@ -18,11 +18,15 @@ public class Data
     private double totalBreak = 0.0;
     private double totalMoney = 0.0;
 
+    private String loadedDate;
+
     public Data (MainActivity mainActivityComponent, ErrorBuilder errorBuilderComponent, ApplicationUI applicationUIComponent)
     {
         this.mainActivityComponent = mainActivityComponent;
         this.errorBuilderComponent = errorBuilderComponent;
         this.applicationUIComponent = applicationUIComponent;
+
+        loadedDate = getCurrentMonth();
     }
 
     public void addMoney(String hoursAtWorkTime, String breakTime, String moneyPerHour)
@@ -137,5 +141,15 @@ public class Data
     public String getCurrentMonth()
     {
         return new SimpleDateFormat("MM-yyyy", Locale.getDefault()).format(new Date());
+    }
+
+    public String getLoadedDate()
+    {
+        return this.loadedDate;
+    }
+
+    public void setLoadedDate(String dateToSet)
+    {
+        this.loadedDate = dateToSet;
     }
 }
