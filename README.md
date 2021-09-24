@@ -20,11 +20,13 @@ For adding data:
 <br>
 -money/h format                   12 or 12.5
 <br>
-'All textboxes must be filled'
+'All textboxes must be filled when adding new data'
 <br>
-'Automatically saves to files when adding/modifying data'
+'Only desired textboxes must be filled when modifying new data (date will be preserved)'
 <br>
-'Automatically creates a screenshot of the table when adding/modifying data'
+'Automatically saves to files when adding/removing/modifying data'
+<br>
+'Automatically creates a screenshot of the table when adding/removing/modifying data'
 <br>
 <br>
 For modification:
