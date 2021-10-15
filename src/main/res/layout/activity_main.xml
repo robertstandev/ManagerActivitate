@@ -85,7 +85,7 @@
                 android:layout_margin="8dp"
                 android:textColorHint="@color/colorAccent"
                 android:fontFamily="serif"
-                android:hint="12"
+                android:hint="14"
                 android:inputType="numberDecimal"
                 android:digits="0123456789."
                 android:maxLength="5"
