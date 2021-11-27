@@ -41,7 +41,7 @@
                 android:digits="0123456789-"
                 android:maxLength="10"
                 android:padding="8dp"
-                android:textColor="@color/red_bright" />
+                android:textColor="@color/cyan" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                     android:digits="0123456789-:"
                     android:maxLength="11"
                     android:padding="8dp"
-                    android:textColor="@color/red_bright" />
+                    android:textColor="@color/cyan" />
 
                 <EditText
                     android:id="@+id/breakField"
@@ -76,7 +76,7 @@
                     android:digits="0123456789:"
                     android:maxLength="5"
                     android:padding="8dp"
-                    android:textColor="@color/red_bright" />
+                    android:textColor="@color/cyan" />
             </LinearLayout>
             <EditText
                 android:id="@+id/moneyPerHourField"
@@ -90,7 +90,7 @@
                 android:digits="0123456789."
                 android:maxLength="5"
                 android:padding="8dp"
-                android:textColor="@color/red_bright" />
+                android:textColor="@color/cyan" />
 
 
             <LinearLayout
@@ -110,7 +110,7 @@
                     android:text="Adauga"
                     android:textColor="@color/black"
                     android:layout_weight="0.5"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"/>
 
                 <Button
                     android:id="@+id/btnRemove"
