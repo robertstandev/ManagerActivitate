@@ -1,4 +1,4 @@
-#Sat Nov 27 08:50:07 EET 2021
+#Sat Nov 27 09:08:40 EET 2021
 base.0=/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

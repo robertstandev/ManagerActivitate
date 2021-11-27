@@ -76,21 +76,23 @@ public class TableUI
 
     public void createRow()
     {
-        if (applicationUIComponent.dateText.length() > 0 && applicationUIComponent.hoursAtWorkText.length() > 2 && applicationUIComponent.hoursAtWorkText.getText().toString().contains("-") && applicationUIComponent.breakText.length() > 0 && applicationUIComponent.moneyPerHourText.length() > 0)
-        {
-            rowBuilder
-            (
-                    new String[]
-                    {
-                            applicationUIComponent.dateText.getText().toString(),
-                            applicationUIComponent.hoursAtWorkText.getText().toString(),
-                            applicationUIComponent.breakText.getText().toString(),
-                            applicationUIComponent.moneyPerHourText.getText().toString(),
-                            String.valueOf(dataComponent.calculateTotalMoney(applicationUIComponent.hoursAtWorkText.getText().toString(), applicationUIComponent.breakText.getText().toString(), applicationUIComponent.moneyPerHourText.getText().toString()))
-                    }
-            );
-            dataComponent.addMoney(applicationUIComponent.hoursAtWorkText.getText().toString(), applicationUIComponent.breakText.getText().toString(), applicationUIComponent.moneyPerHourText.getText().toString());
-        }
+        rowBuilder
+        (
+                new String[]
+                {
+                        applicationUIComponent.dateText.getText().toString(),
+                        applicationUIComponent.hoursAtWorkText.getText().toString(),
+                        applicationUIComponent.breakText.getText().toString(),
+                        applicationUIComponent.moneyPerHourText.getText().toString(),
+                        String.valueOf(dataComponent.calculateTotalMoney(applicationUIComponent.hoursAtWorkText.getText().toString(), applicationUIComponent.breakText.getText().toString(), applicationUIComponent.moneyPerHourText.getText().toString()))
+                }
+        );
+        dataComponent.addMoney(applicationUIComponent.hoursAtWorkText.getText().toString(), applicationUIComponent.breakText.getText().toString(), applicationUIComponent.moneyPerHourText.getText().toString());
+    }
+
+    public boolean canCreateRow()
+    {
+        return (applicationUIComponent.dateText.length() > 0 && applicationUIComponent.hoursAtWorkText.length() > 2 && applicationUIComponent.hoursAtWorkText.getText().toString().contains("-") && applicationUIComponent.breakText.length() > 0 && applicationUIComponent.moneyPerHourText.length() > 0);
     }
 
     public void modifyRow()

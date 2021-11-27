@@ -3,20 +3,20 @@ com/example/manageractivitate/BuildConfig.java
 com/example/manageractivitate/WriteToFile.java
  com.example.manageractivitate.WriteToFile
  com.example.manageractivitate.WriteToFile$1
+com/example/manageractivitate/ErrorBuilder.java
+ com.example.manageractivitate.ErrorBuilder
+com/example/manageractivitate/AskForWritePermission.java
+ com.example.manageractivitate.AskForWritePermission
+com/example/manageractivitate/ApplicationUI.java
+ com.example.manageractivitate.ApplicationUI
+com/example/manageractivitate/Data.java
+ com.example.manageractivitate.Data
 com/example/manageractivitate/ButtonsUI.java
  com.example.manageractivitate.ButtonsUI
 com/example/manageractivitate/MainActivity.java
  com.example.manageractivitate.MainActivity
-com/example/manageractivitate/ApplicationUI.java
- com.example.manageractivitate.ApplicationUI
 com/example/manageractivitate/TableUI.java
  com.example.manageractivitate.TableUI
  com.example.manageractivitate.TableUI$1
-com/example/manageractivitate/AskForWritePermission.java
- com.example.manageractivitate.AskForWritePermission
-com/example/manageractivitate/Data.java
- com.example.manageractivitate.Data
 com/example/manageractivitate/ReadFromFile.java
  com.example.manageractivitate.ReadFromFile
-com/example/manageractivitate/ErrorBuilder.java
- com.example.manageractivitate.ErrorBuilder

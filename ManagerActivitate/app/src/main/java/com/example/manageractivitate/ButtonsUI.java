@@ -37,6 +37,10 @@ public class ButtonsUI implements View.OnClickListener
 
                 if (applicationUIComponent.addButton.getText() == "Adauga")
                 {
+                    if(!tableComponent.canCreateRow())
+                    {
+                        return;
+                    }
                     tableComponent.createRow();
                 }
                 else
