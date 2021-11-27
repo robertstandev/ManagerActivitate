@@ -109,7 +109,6 @@
                     android:fontFamily="serif"
                     android:text="Adauga"
                     android:textColor="@color/black"
-                    android:color="@color/gray"
                     android:layout_weight="0.5"
                     android:textSize="15sp" />
 
@@ -124,7 +123,6 @@
                     android:fontFamily="serif"
                     android:text="Sterge"
                     android:textColor="@color/black"
-                    android:color="@color/gray"
                     android:layout_weight="0.5"
                     android:textSize="15sp" />
                 <Button
@@ -138,7 +136,6 @@
                     android:fontFamily="serif"
                     android:text="[]"
                     android:textColor="@color/black"
-                    android:color="@color/gray"
                     android:layout_weight="0"
                     android:textSize="15sp" />
 
