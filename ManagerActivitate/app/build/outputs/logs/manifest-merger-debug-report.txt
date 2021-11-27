@@ -83,7 +83,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/icefi
 	android:allowBackup
 		ADDED from /home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:8:9-35
 	android:theme
-		ADDED from /home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:13:9-55
+		ADDED from /home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:13:9-65
 activity#com.example.manageractivitate.MainActivity
 ADDED from /home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:14:9-22:20
 	android:exported

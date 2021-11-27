@@ -29,8 +29,8 @@
 19-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:11:9-54
 20        android:supportsRtl="true"
 20-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:12:9-35
-21        android:theme="@style/Theme.ManagerActivitate" >
-21-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:13:9-55
+21        android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+21-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:13:9-65
 22        <activity
 22-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:14:9-22:20
 23            android:name="com.example.manageractivitate.MainActivity"
