@@ -2,6 +2,9 @@ package com.example.manageractivitate;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Environment;
+
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import java.io.File;
@@ -27,7 +30,8 @@ public class AskForWritePermission
 
     public void verifyIfFolderExist()
     {
-        File dir = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/ManagerActivitate");
+        File dir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/ManagerActivitate");
+
         if (!dir.exists())
         {
             dir.mkdirs();
