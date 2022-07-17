@@ -51,8 +51,8 @@ Saving files in:
 <br>
 Visible :
 <br>
-/ManagerActivitate/ + CurrentMonthAndYear + .txt
+Documents/ManagerActivitate/ + CurrentMonthAndYear + .txt
 <br>
-/ManagerActivitate/ + CurrentMonthAndYear + .png
+Documents/ManagerActivitate/ + CurrentMonthAndYear + .png
 <br>
 Invisible (inaccessible except from PC or rooted Phone) : data/user/0/com.stanrobert.manageractivitate/backup + CurrentMonthAndYear + .txt
