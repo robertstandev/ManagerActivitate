@@ -1,5 +1,6 @@
 package com.example.manageractivitate;
 
+import android.os.Environment;
 import android.view.View;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -130,7 +131,7 @@ public class Data
 
     private String getSDCardLocation(String month)
     {
-        return android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/ManagerActivitate/" + month;
+        return  Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS)  + "/ManagerActivitate/" + month;
     }
 
     public File getSavedBackupFile(String month)
