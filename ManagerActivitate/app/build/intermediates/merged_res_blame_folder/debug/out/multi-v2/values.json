@@ -95,24 +95,24 @@
                     }
                 },
                 {
-                    "source": "/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/res/values/strings.xml",
+                    "source": "/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/res/values/colors.xml",
                     "from": {
-                        "startLines": "2,1,4,9,10,6,7,5",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "71,16,179,394,464,309,347,243",
-                        "endColumns": "52,54,63,69,82,37,45,65",
-                        "endOffsets": "119,66,238,459,542,342,388,304"
+                        "startLines": "7,11,3,12,10,2,4,9,5,6,8",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "278,460,102,499,407,55,141,362,188,233,320",
+                        "endColumns": "41,38,38,43,52,46,46,44,44,44,41",
+                        "endOffsets": "315,494,136,538,455,97,183,402,228,273,357"
                     },
                     "to": {
-                        "startLines": "1617,1619,1632,1633,1634,1712,1718,1720",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "98541,98677,100144,100208,100278,112143,112983,113082",
-                        "endColumns": "52,54,63,69,82,37,45,65",
-                        "endOffsets": "98589,98727,100203,100273,100356,112176,113024,113143"
+                        "startLines": "580,593,637,638,641,808,809,810,821,822,826",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "28954,29886,32894,32933,33112,45187,45234,45281,46023,46068,46276",
+                        "endColumns": "41,38,38,43,52,46,46,44,44,44,41",
+                        "endOffsets": "28991,29920,32928,32972,33160,45229,45276,45321,46063,46108,46313"
                     }
                 },
                 {
-                    "source": "/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/res/values/dimens.xml",
+                    "source": "/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/res/values/dimens.xml",
                     "from": {
                         "startLines": "1",
                         "startColumns": "4",
@@ -277,7 +277,7 @@
                     }
                 },
                 {
-                    "source": "/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/res/values/themes.xml",
+                    "source": "/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/res/values/themes.xml",
                     "from": {
                         "startLines": "2,21,16,23",
                         "startColumns": "4,4,4,4",
@@ -372,23 +372,6 @@
                     }
                 },
                 {
-                    "source": "/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/res/values/colors.xml",
-                    "from": {
-                        "startLines": "7,11,3,12,10,2,4,9,5,6,8",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "278,460,102,499,407,55,141,362,188,233,320",
-                        "endColumns": "41,38,38,43,52,46,46,44,44,44,41",
-                        "endOffsets": "315,494,136,538,455,97,183,402,228,273,357"
-                    },
-                    "to": {
-                        "startLines": "580,593,637,638,641,808,809,810,821,822,826",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "28954,29886,32894,32933,33112,45187,45234,45281,46023,46068,46276",
-                        "endColumns": "41,38,38,43,52,46,46,44,44,44,41",
-                        "endOffsets": "28991,29920,32928,32972,33160,45229,45276,45321,46063,46108,46313"
-                    }
-                },
-                {
                     "source": "/home/icefinity/.gradle/caches/transforms-3/5e9ccc35ae1ffabf359a5aa4fa89309d/transformed/navigation-ui-2.5.0/res/values/values.xml",
                     "from": {
                         "startLines": "2,3,4",
@@ -475,6 +458,23 @@
                         "startOffsets": "92887",
                         "endColumns": "53",
                         "endOffsets": "92936"
+                    }
+                },
+                {
+                    "source": "/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "2,1,4,9,10,6,7,5",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "71,16,179,394,464,309,347,243",
+                        "endColumns": "52,54,63,69,82,37,45,65",
+                        "endOffsets": "119,66,238,459,542,342,388,304"
+                    },
+                    "to": {
+                        "startLines": "1617,1619,1632,1633,1634,1712,1718,1720",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "98541,98677,100144,100208,100278,112143,112983,113082",
+                        "endColumns": "52,54,63,69,82,37,45,65",
+                        "endOffsets": "98589,98727,100203,100273,100356,112176,113024,113143"
                     }
                 }
             ]

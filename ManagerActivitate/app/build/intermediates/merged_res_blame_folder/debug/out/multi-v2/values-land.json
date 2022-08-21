@@ -4,7 +4,7 @@
             "outputFile": "com.example.manageractivitate.app-mergeDebugResources-38:/values-land/values-land.xml",
             "map": [
                 {
-                    "source": "/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/res/values-land/dimens.xml",
+                    "source": "/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/res/values-land/dimens.xml",
                     "from": {
                         "startLines": "1",
                         "startColumns": "4",

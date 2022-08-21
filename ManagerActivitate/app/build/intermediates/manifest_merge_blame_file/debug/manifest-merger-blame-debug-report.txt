@@ -6,63 +6,63 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="19"
-8-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml
+8-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="32" />
-9-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml
+9-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-11-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:6:5-80
-11-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:6:22-77
+11-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:6:5-80
+11-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:6:22-77
 12
 13    <!-- File save functions handles this -->
 14    <uses-permission
-14-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:9:5-11:40
+14-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:9:5-11:40
 15        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-15-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:9:22-78
+15-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:9:22-78
 16        android:maxSdkVersion="28" />
-16-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:10:9-35
+16-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:10:9-35
 17
 18    <application
-18-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:13:5-35:19
+18-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:13:5-35:19
 19        android:allowBackup="true"
-19-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:14:9-35
+19-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:14:9-35
 20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 20-->[androidx.core:core:1.8.0] /home/icefinity/.gradle/caches/transforms-3/cd33f26b4f6a5be75c2c675ec5e179dc/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
 21        android:dataExtractionRules="@xml/data_extraction_rules"
-21-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:15:9-65
+21-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:15:9-65
 22        android:debuggable="true"
 23        android:fullBackupContent="@xml/backup_rules"
-23-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:16:9-54
+23-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:16:9-54
 24        android:icon="@mipmap/ic_launcher"
-24-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:17:9-43
+24-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:17:9-43
 25        android:label="@string/app_name"
-25-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:18:9-41
+25-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:18:9-41
 26        android:roundIcon="@mipmap/ic_launcher_round"
-26-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:19:9-54
+26-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:19:9-54
 27        android:supportsRtl="true"
-27-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:20:9-35
+27-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:20:9-35
 28        android:testOnly="true"
 29        android:theme="@style/Theme.ManagerActivitate" >
-29-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:21:9-55
+29-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:21:9-55
 30        <activity
-30-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:24:9-34:20
+30-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:24:9-34:20
 31            android:name="com.example.manageractivitate.MainActivity"
-31-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:25:13-41
+31-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:25:13-41
 32            android:exported="true"
-32-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:26:13-36
+32-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:26:13-36
 33            android:label="@string/app_name"
-33-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:27:13-45
+33-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:27:13-45
 34            android:theme="@style/Theme.ManagerActivitate.NoActionBar" >
-34-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:28:13-71
+34-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:28:13-71
 35            <intent-filter>
-35-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:29:13-33:29
+35-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:29:13-33:29
 36                <action android:name="android.intent.action.MAIN" />
-36-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:30:17-69
-36-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:30:25-66
+36-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:30:17-69
+36-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:30:25-66
 37
 38                <category android:name="android.intent.category.LAUNCHER" />
-38-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:32:17-77
-38-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:32:27-74
+38-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:32:17-77
+38-->/home/icefinity/Android/Proiecte/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:32:27-74
 39            </intent-filter>
 40        </activity>
 41
