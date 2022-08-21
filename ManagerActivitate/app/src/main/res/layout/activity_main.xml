@@ -156,7 +156,7 @@
                     android:text="Total Bani:\n0 RON"
                     android:textAlignment="center"
                     android:textColor="@color/red_bright"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -168,7 +168,7 @@
                     android:text="Ore La Munca:\n0 h"
                     android:textColor="@color/gray_dark"
                     android:textAlignment="center"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -180,7 +180,7 @@
                     android:text="Ore Pauza:\n0 h"
                     android:textColor="@color/gray_dark"
                     android:textAlignment="center"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
 

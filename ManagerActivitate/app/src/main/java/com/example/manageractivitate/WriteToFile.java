@@ -1,9 +1,14 @@
 package com.example.manageractivitate;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
+import android.provider.DocumentsContract;
+import android.provider.MediaStore;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.TableRow;
@@ -17,10 +22,10 @@ import java.util.ArrayList;
 
 public class WriteToFile
 {
-    private AskForWritePermission askPermissionComponent;
-    private Data dataComponent;
-    private ErrorBuilder errorBuilderComponent;
-    private ApplicationUI applicationUIComponent;
+    private final AskForWritePermission askPermissionComponent;
+    private final Data dataComponent;
+    private final ErrorBuilder errorBuilderComponent;
+    private final ApplicationUI applicationUIComponent;
 
     public WriteToFile(AskForWritePermission askPermissionComponent, Data dataComponent, ErrorBuilder errorBuilderComponent, ApplicationUI applicationUIComponent)
     {

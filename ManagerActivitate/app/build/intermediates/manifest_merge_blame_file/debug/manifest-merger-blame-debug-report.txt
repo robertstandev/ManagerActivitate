@@ -6,48 +6,100 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="19"
-8-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml
-9        android:targetSdkVersion="31" />
-9-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml
+8-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml
 10
-11    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-11-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:5:5-81
-11-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:5:22-78
+11    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+11-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:6:5-80
+11-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:6:22-77
 12
-13    <application
-13-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:7:5-23:19
-14        android:allowBackup="true"
-14-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:8:9-35
-15        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-15-->[androidx.core:core:1.5.0] /home/icefinity/.gradle/caches/transforms-3/97e7ec19bd11dff7ae3d399ac9d0fa5b/transformed/core-1.5.0/AndroidManifest.xml:24:18-86
-16        android:debuggable="true"
-17        android:icon="@mipmap/ic_launcher"
-17-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:9:9-43
-18        android:label="@string/app_name"
-18-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:10:9-41
-19        android:roundIcon="@mipmap/ic_launcher_round"
-19-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:11:9-54
-20        android:supportsRtl="true"
-20-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:12:9-35
-21        android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-21-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:13:9-65
-22        <activity
-22-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:14:9-22:20
-23            android:name="com.example.manageractivitate.MainActivity"
-23-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:15:13-41
-24            android:exported="true" >
-24-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:16:13-36
-25            <intent-filter>
-25-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:17:13-21:29
-26                <action android:name="android.intent.action.MAIN" />
-26-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:18:17-69
-26-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:18:25-66
-27
-28                <category android:name="android.intent.category.LAUNCHER" />
-28-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:20:17-77
-28-->/home/icefinity/Android/Projects/ManagerActivitate/ManagerActivitate/app/src/main/AndroidManifest.xml:20:27-74
-29            </intent-filter>
-30        </activity>
-31    </application>
-32
-33</manifest>
+13    <!-- File save functions handles this -->
+14    <uses-permission
+14-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:9:5-11:40
+15        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+15-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:9:22-78
+16        android:maxSdkVersion="28" />
+16-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:10:9-35
+17
+18    <application
+18-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:13:5-35:19
+19        android:allowBackup="true"
+19-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:14:9-35
+20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+20-->[androidx.core:core:1.8.0] /home/icefinity/.gradle/caches/transforms-3/cd33f26b4f6a5be75c2c675ec5e179dc/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
+21        android:dataExtractionRules="@xml/data_extraction_rules"
+21-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:15:9-65
+22        android:debuggable="true"
+23        android:fullBackupContent="@xml/backup_rules"
+23-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:16:9-54
+24        android:icon="@mipmap/ic_launcher"
+24-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:17:9-43
+25        android:label="@string/app_name"
+25-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:18:9-41
+26        android:roundIcon="@mipmap/ic_launcher_round"
+26-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:19:9-54
+27        android:supportsRtl="true"
+27-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:20:9-35
+28        android:testOnly="true"
+29        android:theme="@style/Theme.ManagerActivitate" >
+29-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:21:9-55
+30        <activity
+30-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:24:9-34:20
+31            android:name="com.example.manageractivitate.MainActivity"
+31-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:25:13-41
+32            android:exported="true"
+32-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:26:13-36
+33            android:label="@string/app_name"
+33-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:27:13-45
+34            android:theme="@style/Theme.ManagerActivitate.NoActionBar" >
+34-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:28:13-71
+35            <intent-filter>
+35-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:29:13-33:29
+36                <action android:name="android.intent.action.MAIN" />
+36-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:30:17-69
+36-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:30:25-66
+37
+38                <category android:name="android.intent.category.LAUNCHER" />
+38-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:32:17-77
+38-->/home/icefinity/Android/Proiecte/ManagerActivitate/app/src/main/AndroidManifest.xml:32:27-74
+39            </intent-filter>
+40        </activity>
+41
+42        <provider
+42-->[androidx.emoji2:emoji2:1.0.0] /home/icefinity/.gradle/caches/transforms-3/9cb5d0b2fd275b8005e0d8fda37c4df6/transformed/emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
+43            android:name="androidx.startup.InitializationProvider"
+43-->[androidx.emoji2:emoji2:1.0.0] /home/icefinity/.gradle/caches/transforms-3/9cb5d0b2fd275b8005e0d8fda37c4df6/transformed/emoji2-1.0.0/AndroidManifest.xml:27:13-67
+44            android:authorities="com.example.manageractivitate.androidx-startup"
+44-->[androidx.emoji2:emoji2:1.0.0] /home/icefinity/.gradle/caches/transforms-3/9cb5d0b2fd275b8005e0d8fda37c4df6/transformed/emoji2-1.0.0/AndroidManifest.xml:28:13-68
+45            android:exported="false" >
+45-->[androidx.emoji2:emoji2:1.0.0] /home/icefinity/.gradle/caches/transforms-3/9cb5d0b2fd275b8005e0d8fda37c4df6/transformed/emoji2-1.0.0/AndroidManifest.xml:29:13-37
+46            <meta-data
+46-->[androidx.emoji2:emoji2:1.0.0] /home/icefinity/.gradle/caches/transforms-3/9cb5d0b2fd275b8005e0d8fda37c4df6/transformed/emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+47                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+47-->[androidx.emoji2:emoji2:1.0.0] /home/icefinity/.gradle/caches/transforms-3/9cb5d0b2fd275b8005e0d8fda37c4df6/transformed/emoji2-1.0.0/AndroidManifest.xml:32:17-75
+48                android:value="androidx.startup" />
+48-->[androidx.emoji2:emoji2:1.0.0] /home/icefinity/.gradle/caches/transforms-3/9cb5d0b2fd275b8005e0d8fda37c4df6/transformed/emoji2-1.0.0/AndroidManifest.xml:33:17-49
+49            <meta-data
+49-->[androidx.lifecycle:lifecycle-process:2.4.0] /home/icefinity/.gradle/caches/transforms-3/8eef53d9995d138e5396bc0361630197/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
+50                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+50-->[androidx.lifecycle:lifecycle-process:2.4.0] /home/icefinity/.gradle/caches/transforms-3/8eef53d9995d138e5396bc0361630197/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
+51                android:value="androidx.startup" />
+51-->[androidx.lifecycle:lifecycle-process:2.4.0] /home/icefinity/.gradle/caches/transforms-3/8eef53d9995d138e5396bc0361630197/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
+52        </provider>
+53
+54        <uses-library
+54-->[androidx.window:window:1.0.0] /home/icefinity/.gradle/caches/transforms-3/e76a7549cd3482ebe8c44ae2df2a404e/transformed/window-1.0.0/AndroidManifest.xml:25:9-27:40
+55            android:name="androidx.window.extensions"
+55-->[androidx.window:window:1.0.0] /home/icefinity/.gradle/caches/transforms-3/e76a7549cd3482ebe8c44ae2df2a404e/transformed/window-1.0.0/AndroidManifest.xml:26:13-54
+56            android:required="false" />
+56-->[androidx.window:window:1.0.0] /home/icefinity/.gradle/caches/transforms-3/e76a7549cd3482ebe8c44ae2df2a404e/transformed/window-1.0.0/AndroidManifest.xml:27:13-37
+57        <uses-library
+57-->[androidx.window:window:1.0.0] /home/icefinity/.gradle/caches/transforms-3/e76a7549cd3482ebe8c44ae2df2a404e/transformed/window-1.0.0/AndroidManifest.xml:28:9-30:40
+58            android:name="androidx.window.sidecar"
+58-->[androidx.window:window:1.0.0] /home/icefinity/.gradle/caches/transforms-3/e76a7549cd3482ebe8c44ae2df2a404e/transformed/window-1.0.0/AndroidManifest.xml:29:13-51
+59            android:required="false" />
+59-->[androidx.window:window:1.0.0] /home/icefinity/.gradle/caches/transforms-3/e76a7549cd3482ebe8c44ae2df2a404e/transformed/window-1.0.0/AndroidManifest.xml:30:13-37
+60    </application>
+61
+62</manifest>
