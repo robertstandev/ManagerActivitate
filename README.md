@@ -44,7 +44,7 @@ For reading the previous months:
 <br>
 -in the date textbox type only the month and year ex: 01-2020   or    03-2021
 <br>
--and then press []
+-and then press the third button []
 <br>
 <br>
 Saving files in:
@@ -55,4 +55,6 @@ Documents/ManagerActivitate/ + CurrentMonthAndYear + .txt
 <br>
 Documents/ManagerActivitate/ + CurrentMonthAndYear + .png
 <br>
-Invisible (inaccessible except from PC or rooted Phone) : data/user/0/com.stanrobert.manageractivitate/backup + CurrentMonthAndYear + .txt
+Invisible (inaccessible except from PC or rooted Phone) : 
+<br>
+data/user/0/com.stanrobert.manageractivitate/backup + CurrentMonthAndYear + .txt
