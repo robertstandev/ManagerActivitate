@@ -27,26 +27,26 @@ For adding data:
 'Automatically saves to files when adding/removing/modifying data'
 <br>
 'Automatically creates a screenshot of the table when adding/removing/modifying data'
-<br>
-<br>
+
+---
 For modification:
 <br>
 Select the row/s and only fill the textboxes regarding the data that needs to be changed (hours at work , break hours , money/h)
 (date will be preserved) and then the Change button needs to be pressed (which was the Add button before selecting the row/s)
-<br>
-<br>
+
+---
 For deleting:
 <br>
 Select the row/s and press the Delete button
-<br>
-<br>
+
+---
 For reading the previous months:
 <br>
 -in the date textbox type only the month and year ex: 01-2020   or    03-2021
 <br>
 -and then press the third button []
-<br>
-<br>
+
+---
 Saving files in:
 <br>
 Visible :
