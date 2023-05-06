@@ -1,14 +1,9 @@
 package com.example.manageractivitate;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.media.MediaScannerConnection;
-import android.net.Uri;
-import android.provider.DocumentsContract;
-import android.provider.MediaStore;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.TableRow;
@@ -58,7 +53,7 @@ public class WriteToFile
 
     public void writeFile(File file)
     {
-        String str = "";
+        StringBuilder str = new StringBuilder();
         try
         {
             for (int i = 1; i <= (applicationUIComponent.tableGUI.getChildCount() - 1); i++)
@@ -69,10 +64,15 @@ public class WriteToFile
                 View columnMoneyPerHour = ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(3);
                 View columnMoneyPerDay = ((TableRow) applicationUIComponent.tableGUI.getChildAt(i)).getChildAt(4);
 
-                str = str + ((TextView) columnData).getText().toString() + " ----- " + ((TextView) columnHoursAtWork).getText().toString() + " ----- " + ((TextView) columnBreakHours).getText().toString() + " ----- " + ((TextView) columnMoneyPerHour).getText().toString() + " ----- " + ((TextView) columnMoneyPerDay).getText().toString() + "\n";
+                str.append(((TextView) columnData).getText().toString())
+                   .append(" ----- ")
+                   .append(((TextView) columnHoursAtWork).getText().toString())
+                   .append(" ----- ").append(((TextView) columnBreakHours).getText().toString())
+                   .append(" ----- ").append(((TextView) columnMoneyPerHour).getText().toString())
+                   .append(" ----- ").append(((TextView) columnMoneyPerDay).getText().toString()).append("\n");
             }
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-            writer.write(str);
+            writer.write(str.toString());
             writer.close();
         }
         catch (Exception e)
