@@ -5,12 +5,12 @@ import android.view.inputmethod.InputMethodManager;
 
 public class ButtonsUI implements View.OnClickListener
 {
-    private Data dataComponent;
-    private MainActivity mainActivityComponent;
-    private TableUI tableComponent;
-    private WriteToFile writeFileComponent;
-    private ReadFromFile readFileComponent;
-    private ApplicationUI applicationUIComponent;
+    private final Data dataComponent;
+    private final MainActivity mainActivityComponent;
+    private final TableUI tableComponent;
+    private final WriteToFile writeFileComponent;
+    private final ReadFromFile readFileComponent;
+    private final ApplicationUI applicationUIComponent;
 
     public ButtonsUI(Data dataComponent, MainActivity mainActivityComponent, TableUI tableComponent, WriteToFile writeFileComponent, ReadFromFile readFileComponent, ApplicationUI applicationUIComponent)
     {
@@ -46,6 +46,7 @@ public class ButtonsUI implements View.OnClickListener
                 else
                 {
                     tableComponent.modifyRow();
+                    tableComponent.clearUserSelectedRows();
                 }
 
                 tableComponent.displayCalculations();
