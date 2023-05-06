@@ -122,6 +122,15 @@ public class TableUI
         }
     }
 
+    public void clearUserSelectedRows()
+    {
+        for (int i = applicationUIComponent.tableGUI.getChildCount() - 1; i >= 1; i--)
+        {
+            applicationUIComponent.tableGUI.getChildAt(i).setBackgroundColor(Color.rgb(218, 232, 252));
+        }
+        checkRowSelection();
+    }
+
     public void deleteRow()
     {
         if (applicationUIComponent.tableGUI.getChildCount() > 1)
