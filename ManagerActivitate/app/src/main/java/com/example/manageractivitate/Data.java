@@ -11,9 +11,9 @@ import java.util.Locale;
 
 public class Data
 {
-    private MainActivity mainActivityComponent;
-    private ErrorBuilder errorBuilderComponent;
-    private ApplicationUI applicationUIComponent;
+    private final MainActivity mainActivityComponent;
+    private final ErrorBuilder errorBuilderComponent;
+    private final ApplicationUI applicationUIComponent;
 
     private double totalHoursAtWork = 0.0;
     private double totalBreak = 0.0;
@@ -59,8 +59,8 @@ public class Data
     private double calculateHoursAtWork(String myValues)
     {
         String[] parts = myValues.split("\\-");
-        Double inputStartHours = parts[0].contains(":") ? convertUserInputFormatToDouble(parts[0]) : Double.valueOf(parts[0]);
-        Double inputEndHours = parts[1].contains(":") ? convertUserInputFormatToDouble(parts[1]) : Double.valueOf(parts[1]);
+        double inputStartHours = parts[0].contains(":") ? convertUserInputFormatToDouble(parts[0]) : Double.parseDouble(parts[0]);
+        double inputEndHours = parts[1].contains(":") ? convertUserInputFormatToDouble(parts[1]) : Double.parseDouble(parts[1]);
 
         return inputStartHours >= inputEndHours ? ((24 - inputStartHours) + inputEndHours) : inputEndHours - inputStartHours;
     }
@@ -68,10 +68,10 @@ public class Data
     public double calculateTotalMoney(String oreMuncite, String orePauza, String baniPeOra)
     {
         String[] parts = String.valueOf(calculateHoursAtWork(oreMuncite) - convertUserInputFormatToDouble(orePauza)).split("\\.");
-        double intBeforeLine = Double.valueOf(parts[0]);
-        double intAfterLine = Double.valueOf(parts[1]) / 10;
+        double intBeforeLine = Double.parseDouble(parts[0]);
+        double intAfterLine = Double.parseDouble(parts[1]) / 10;
 
-        return (intBeforeLine * Double.valueOf(baniPeOra)) + (Double.valueOf(baniPeOra) * intAfterLine);
+        return (intBeforeLine * Double.parseDouble(baniPeOra)) + (Double.parseDouble(baniPeOra) * intAfterLine);
     }
 
     private double convertUserInputFormatToDouble(String input)
@@ -80,11 +80,11 @@ public class Data
         if (input.contains(":"))
         {
             String[] parts = input.split("\\:");
-            result = parts[1].equals("00") || parts[1].equals("0") ? Double.valueOf(parts[0]) : Double.valueOf(parts[0]) + 1d / (60 / Integer.valueOf(parts[1]));
+            result = parts[1].equals("00") || parts[1].equals("0") ? Double.parseDouble(parts[0]) : Double.parseDouble(parts[0]) + 1d / (60 / Integer.parseInt(parts[1]));
         }
         else
         {
-            result = Double.valueOf(input);
+            result = Double.parseDouble(input);
         }
 
         return result;
@@ -116,7 +116,7 @@ public class Data
     {
         String[] parts = String.valueOf(input).split("\\.");
 
-        return input % 1 == 0 ? parts[0] : parts[0] + ":" + String.valueOf(((Integer.valueOf(parts[1]) * 60) / 10)).substring(0, 2);
+        return input % 1 == 0 ? parts[0] : parts[0] + ":" + String.valueOf(((Integer.parseInt(parts[1]) * 60) / 10)).substring(0, 2);
     }
 
     public File getSavedFile(String month)
