@@ -38,7 +38,7 @@ public class ApplicationUI
         this.breakText = mainActivityComponent.findViewById(R.id.breakField);
 
         this.moneyPerHourText = mainActivityComponent.findViewById(R.id.moneyPerHourField);
-        //this.moneyPerHourText.setText("12");
+        //this.moneyPerHourText.setText("18");
 
         this.totalMoneyLabel = mainActivityComponent.findViewById(R.id.totalMoney);
         this.totalMoneyLabel.setText("Bani:\n0 RON");
