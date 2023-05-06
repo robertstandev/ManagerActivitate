@@ -22,8 +22,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="16dp"
-                android:fontFamily="serif"
                 android:clickable="true"
+                android:fontFamily="serif"
+                android:minHeight="48dp"
                 android:text="Manager Activitate"
                 android:textColor="@color/cyan"
                 android:textSize="20sp"
@@ -34,63 +35,75 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:textColorHint="@color/red_bright"
+                android:digits="0123456789-"
                 android:fontFamily="serif"
                 android:hint="01-01-2021"
                 android:inputType="datetime"
-                android:digits="0123456789-"
+                android:textAlignment="center"
                 android:maxLength="10"
+                android:minHeight="48dp"
                 android:padding="8dp"
-                android:textColor="@color/cyan" />
+                android:textColor="@color/cyan"
+                android:textColorHint="@color/red_bright" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <EditText
                     android:id="@+id/workHoursField"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="left"
                     android:layout_margin="8dp"
-                    android:textColorHint="@color/red_bright"
+                    android:layout_weight="0.33"
+                    android:digits="0123456789-:"
                     android:fontFamily="serif"
                     android:hint="7-15:30"
-                    android:layout_gravity="left"
-                    android:layout_weight="0.5"
                     android:inputType="datetime"
-                    android:digits="0123456789-:"
                     android:maxLength="11"
+                    android:minHeight="48dp"
                     android:padding="8dp"
-                    android:textColor="@color/cyan" />
+                    android:textColor="@color/cyan"
+                    android:textColorHint="@color/red_bright" />
 
                 <EditText
                     android:id="@+id/breakField"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:layout_margin="8dp"
-                    android:textColorHint="@color/red_bright"
+                    android:layout_weight="0.33"
+                    android:digits="0123456789:"
                     android:fontFamily="serif"
                     android:hint="0:30"
-                    android:layout_gravity="right"
-                    android:layout_weight="0.5"
                     android:inputType="datetime"
-                    android:digits="0123456789:"
                     android:maxLength="5"
+                    android:minHeight="48dp"
                     android:padding="8dp"
-                    android:textColor="@color/cyan" />
+                    android:textColor="@color/cyan"
+                    android:textColorHint="@color/red_bright" />
+
+                <EditText
+                    android:id="@+id/moneyPerHourField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_margin="8dp"
+                    android:layout_weight="0.33"
+                    android:digits="0123456789."
+                    android:fontFamily="serif"
+                    android:hint="18"
+                    android:inputType="numberDecimal"
+                    android:maxLength="5"
+                    android:minHeight="48dp"
+                    android:padding="8dp"
+                    android:textColor="@color/cyan"
+                    android:textColorHint="@color/red_bright" />
+
             </LinearLayout>
-            <EditText
-                android:id="@+id/moneyPerHourField"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:textColorHint="@color/red_bright"
-                android:fontFamily="serif"
-                android:hint="14"
-                android:inputType="numberDecimal"
-                android:digits="0123456789."
-                android:maxLength="5"
-                android:padding="8dp"
-                android:textColor="@color/cyan" />
+
+
 
 
             <LinearLayout
